@@ -201,24 +201,26 @@ This monorepo uses TypeScript Project References for optimal build performance a
 ### Project Reference Architecture
 
 **Root TypeScript Configuration (`tsconfig.json`):**
+
 ```json
 {
   "references": [
     { "path": "packages/types" },
-    { "path": "packages/fe-config" },     // Build before apps
+    { "path": "packages/fe-config" }, // Build before apps
     { "path": "packages/components" },
     { "path": "packages/styles" },
-    { "path": "apps/fe/test-app" }        // Built after dependencies
+    { "path": "apps/fe/test-app" } // Built after dependencies
   ]
 }
 ```
 
 **App TypeScript Configuration (e.g., `test-app/tsconfig.json`):**
+
 ```json
 {
   "references": [
     { "path": "../../../packages/types" },
-    { "path": "../../../packages/fe-config" },  // Critical for Vite config imports
+    { "path": "../../../packages/fe-config" }, // Critical for Vite config imports
     { "path": "../../../packages/components" }
   ]
 }
@@ -242,8 +244,9 @@ yarn build:clean && yarn build
 **Problem Solved**: Previously, apps couldn't import from `@mono/fe-config` because TypeScript project references weren't properly configured.
 
 **Solution Applied**:
+
 1. ✅ Added `fe-config` to root TypeScript project references
-2. ✅ Added `fe-config` reference to app-level TypeScript configurations  
+2. ✅ Added `fe-config` reference to app-level TypeScript configurations
 3. ✅ Ensured proper build order: `types` → `fe-config` → `components` → `apps`
 
 This ensures that when an app imports `@mono/fe-config/vite`, the compiled JavaScript is available.
@@ -319,11 +322,12 @@ This monorepo uses a **shared dependencies approach** where build tools and deve
 #### **How It Works**
 
 **Root Level Dependencies:**
+
 ```json
 {
   "devDependencies": {
     "typescript-eslint": "^8.17.0",
-    "vite": "^6.3.5", 
+    "vite": "^6.3.5",
     "typescript": "^5.7.3",
     "@eslint/js": "^9.27.0"
   }
@@ -331,11 +335,12 @@ This monorepo uses a **shared dependencies approach** where build tools and deve
 ```
 
 **Package Level Scripts (using `npx` for binary resolution):**
+
 ```json
 {
   "scripts": {
     "start": "npx vite --port=3000",
-    "build": "npx tsc -b && npx vite build", 
+    "build": "npx tsc -b && npx vite build",
     "lint": "npx eslint .",
     "format": "npx prettier --write ."
   }
@@ -343,6 +348,7 @@ This monorepo uses a **shared dependencies approach** where build tools and deve
 ```
 
 **Workspace Orchestration:**
+
 ```bash
 # Root level commands that delegate to packages
 yarn workspace test-app build    # Finds and uses root-level vite
@@ -355,7 +361,7 @@ yarn lint  # Runs across all packages with shared eslint
 Thanks to this architecture, adding new apps is incredibly simple:
 
 1. **Create app directory**: `mkdir apps/fe/new-app`
-2. **Add package.json with clean scripts**: 
+2. **Add package.json with clean scripts**:
    ```json
    {
      "scripts": {
@@ -563,7 +569,7 @@ yarn workspace @mono/eslint-config-custom format  # Format config files
 test-app (React App)
 ├── @mono/types (Shared Types)
 ├── @mono/fe-config (Frontend Configuration)
-├── @mono/components (UI Components)  
+├── @mono/components (UI Components)
 ├── @mono/styles (Design System)
 ├── @mono/eslint-config-custom (Linting)
 ├── React 19
@@ -790,7 +796,7 @@ yarn workspace test-app build
 ```json
 {
   "scripts": {
-    "start": "npx vite --port=3000",  // ✅ Uses root-level vite
+    "start": "npx vite --port=3000", // ✅ Uses root-level vite
     "build": "npx tsc -b && npx vite build"
   }
 }
@@ -835,7 +841,7 @@ yarn cache clean
 ### VS Code Issues
 
 - Restart TypeScript server: `Cmd+Shift+P` → "TypeScript: Restart TS Server"
-- Reload window: `Cmd+Shift+P` → "Developer: Reload Window"  
+- Reload window: `Cmd+Shift+P` → "Developer: Reload Window"
 - Check ESLint output: `View` → `Output` → Select "ESLint" from dropdown
 
 ---
