@@ -242,7 +242,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.27.0, @eslint/js@npm:^9.25.0":
+"@eslint/js@npm:9.27.0, @eslint/js@npm:^9.27.0":
   version: 9.27.0
   resolution: "@eslint/js@npm:9.27.0"
   checksum: 10c0/79b219ceda79182732954b52f7a494f49995a9a6419c7ae0316866e324d3706afeb857e1306bb6f35a4caaf176a5174d00228fc93d36781a570d32c587736564
@@ -415,72 +415,72 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mono/eslint-config-custom@workspace:*, @mono/eslint-config-custom@workspace:packages/config/eslint-config-custom":
+"@mono/eslint-config-custom@workspace:^, @mono/eslint-config-custom@workspace:packages/config/eslint-config-custom":
   version: 0.0.0-use.local
   resolution: "@mono/eslint-config-custom@workspace:packages/config/eslint-config-custom"
   dependencies:
-    "@eslint/js": "npm:^9.25.0"
-    "@typescript-eslint/eslint-plugin": "npm:^8.30.1"
-    "@typescript-eslint/parser": "npm:^8.30.1"
-    eslint-config-prettier: "npm:^9.1.0"
+    "@eslint/js": "npm:^9.27.0"
+    "@typescript-eslint/eslint-plugin": "npm:^8.33.0"
+    "@typescript-eslint/parser": "npm:^8.33.0"
+    eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-prettier: "npm:^5.2.1"
-    eslint-plugin-react: "npm:^7.37.2"
+    eslint-plugin-prettier: "npm:^5.4.0"
+    eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-react-hooks: "npm:^5.2.0"
-    eslint-plugin-react-refresh: "npm:^0.4.19"
-    globals: "npm:^16.0.0"
-    prettier: "npm:^3.4.2"
-    typescript-eslint: "npm:^8.30.1"
+    eslint-plugin-react-refresh: "npm:^0.4.20"
+    globals: "npm:^16.2.0"
+    prettier: "npm:^3.5.3"
+    typescript-eslint: "npm:^8.33.0"
   peerDependencies:
     eslint: ">=8.0.0"
     typescript: ">=4.0.0"
   languageName: unknown
   linkType: soft
 
-"@mono/styles@workspace:*, @mono/styles@workspace:packages/styles":
+"@mono/styles@workspace:^, @mono/styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@mono/styles@workspace:packages/styles"
   dependencies:
-    "@mono/eslint-config-custom": "workspace:*"
-    eslint: "npm:^9.10.0"
+    "@mono/eslint-config-custom": "workspace:^"
+    eslint: "npm:^9.27.0"
     install: "npm:^0.13.0"
     open-props: "npm:^1.7.15"
-    prettier: "npm:^3.3.3"
+    prettier: "npm:^3.5.3"
     sass: "npm:^1.89.0"
-    typescript: "npm:^5.6.2"
+    typescript: "npm:^5.8.3"
   peerDependencies:
     sass: ^1.80.0
   languageName: unknown
   linkType: soft
 
-"@mono/types@workspace:*, @mono/types@workspace:packages/types":
+"@mono/types@workspace:^, @mono/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@mono/types@workspace:packages/types"
   dependencies:
-    "@mono/eslint-config-custom": "workspace:*"
-    eslint: "npm:^9.25.0"
-    prettier: "npm:^3.4.2"
-    typescript: "npm:~5.8.3"
+    "@mono/eslint-config-custom": "workspace:^"
+    eslint: "npm:^9.27.0"
+    prettier: "npm:^3.5.3"
+    typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft
 
-"@mono/ui@workspace:*, @mono/ui@workspace:packages/components":
+"@mono/ui@workspace:^, @mono/ui@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@mono/ui@workspace:packages/components"
   dependencies:
-    "@mono/eslint-config-custom": "workspace:*"
-    "@mono/styles": "workspace:*"
-    "@mono/types": "workspace:*"
-    "@types/react": "npm:^19.1.2"
-    "@types/react-dom": "npm:^19.1.2"
-    eslint: "npm:^9.25.0"
-    prettier: "npm:^3.4.2"
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
+    "@mono/types": "workspace:^"
+    "@types/react": "npm:^19.1.6"
+    "@types/react-dom": "npm:^19.1.5"
+    eslint: "npm:^9.27.0"
+    prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
-    react-aria-components: "npm:^1.4.0"
+    react-aria-components: "npm:^1.9.0"
     react-dom: "npm:^19.1.0"
     sass: "npm:^1.89.0"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:^5.8.3"
   peerDependencies:
     react: ">=18.0.0"
     react-dom: ">=18.0.0"
@@ -2706,7 +2706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.1.2":
+"@types/react-dom@npm:^19.1.5":
   version: 19.1.5
   resolution: "@types/react-dom@npm:19.1.5"
   peerDependencies:
@@ -2715,7 +2715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.1.2":
+"@types/react@npm:^19.1.6":
   version: 19.1.6
   resolution: "@types/react@npm:19.1.6"
   dependencies:
@@ -2724,7 +2724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:8.33.0, @typescript-eslint/eslint-plugin@npm:^8.30.1":
+"@typescript-eslint/eslint-plugin@npm:8.33.0, @typescript-eslint/eslint-plugin@npm:^8.33.0":
   version: 8.33.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.33.0"
   dependencies:
@@ -2745,7 +2745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:8.33.0, @typescript-eslint/parser@npm:^8.30.1":
+"@typescript-eslint/parser@npm:8.33.0, @typescript-eslint/parser@npm:^8.33.0":
   version: 8.33.0
   resolution: "@typescript-eslint/parser@npm:8.33.0"
   dependencies:
@@ -2858,7 +2858,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react-swc@npm:^3.9.0":
+"@vitejs/plugin-react-swc@npm:^3.10.0":
   version: 3.10.0
   resolution: "@vitejs/plugin-react-swc@npm:3.10.0"
   dependencies:
@@ -3679,14 +3679,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "eslint-config-prettier@npm:9.1.0"
+"eslint-config-prettier@npm:^10.1.5":
+  version: 10.1.5
+  resolution: "eslint-config-prettier@npm:10.1.5"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 10c0/6d332694b36bc9ac6fdb18d3ca2f6ac42afa2ad61f0493e89226950a7091e38981b66bac2b47ba39d15b73fff2cd32c78b850a9cf9eed9ca9a96bfb2f3a2f10d
+  checksum: 10c0/5486255428e4577e8064b40f27db299faf7312b8e43d7b4bc913a6426e6c0f5950cd519cad81ae24e9aecb4002c502bc665c02e3b52efde57af2debcf27dd6e0
   languageName: node
   linkType: hard
 
@@ -3767,7 +3767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.2.1":
+"eslint-plugin-prettier@npm:^5.4.0":
   version: 5.4.0
   resolution: "eslint-plugin-prettier@npm:5.4.0"
   dependencies:
@@ -3796,7 +3796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-refresh@npm:^0.4.19":
+"eslint-plugin-react-refresh@npm:^0.4.20":
   version: 0.4.20
   resolution: "eslint-plugin-react-refresh@npm:0.4.20"
   peerDependencies:
@@ -3805,7 +3805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.37.2":
+"eslint-plugin-react@npm:^7.37.5":
   version: 7.37.5
   resolution: "eslint-plugin-react@npm:7.37.5"
   dependencies:
@@ -3857,7 +3857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.10.0, eslint@npm:^9.25.0":
+"eslint@npm:^9.27.0":
   version: 9.27.0
   resolution: "eslint@npm:9.27.0"
   dependencies:
@@ -4219,7 +4219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.0.0":
+"globals@npm:^16.2.0":
   version: 16.2.0
   resolution: "globals@npm:16.2.0"
   checksum: 10c0/c2b3ea163faa6f8a38076b471b12f4bda891f7df7f7d2e8294fb4801d735a51a73431bf4c1696c5bf5dbca5e0a0db894698acfcbd3068730c6b12eef185dea25
@@ -5011,6 +5011,7 @@ __metadata:
   resolution: "mono-workspace@workspace:."
   dependencies:
     sass: "npm:^1.89.0"
+    typescript: "npm:^5.8.3"
   languageName: unknown
   linkType: soft
 
@@ -5325,7 +5326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.3.3, prettier@npm:^3.4.2":
+"prettier@npm:^3.5.3":
   version: 3.5.3
   resolution: "prettier@npm:3.5.3"
   bin:
@@ -5376,7 +5377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-aria-components@npm:^1.4.0":
+"react-aria-components@npm:^1.9.0":
   version: 1.9.0
   resolution: "react-aria-components@npm:1.9.0"
   dependencies:
@@ -6152,20 +6153,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test-app@workspace:apps/fe/test-app"
   dependencies:
-    "@eslint/js": "npm:^9.25.0"
-    "@mono/eslint-config-custom": "workspace:*"
-    "@mono/styles": "workspace:*"
-    "@mono/ui": "workspace:*"
+    "@eslint/js": "npm:^9.27.0"
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
+    "@mono/ui": "workspace:^"
     "@types/node": "npm:^22.15.24"
-    "@types/react": "npm:^19.1.2"
-    "@types/react-dom": "npm:^19.1.2"
-    "@vitejs/plugin-react-swc": "npm:^3.9.0"
-    eslint: "npm:^9.25.0"
-    prettier: "npm:^3.4.2"
+    "@types/react": "npm:^19.1.6"
+    "@types/react-dom": "npm:^19.1.5"
+    "@vitejs/plugin-react-swc": "npm:^3.10.0"
+    eslint: "npm:^9.27.0"
+    prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     sass: "npm:^1.89.0"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:^5.8.3"
     vite: "npm:^6.3.5"
   languageName: unknown
   linkType: soft
@@ -6279,7 +6280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.30.1":
+"typescript-eslint@npm:^8.33.0":
   version: 8.33.0
   resolution: "typescript-eslint@npm:8.33.0"
   dependencies:
@@ -6293,7 +6294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.6.2, typescript@npm:~5.8.3":
+"typescript@npm:^5.8.3":
   version: 5.8.3
   resolution: "typescript@npm:5.8.3"
   bin:
@@ -6303,7 +6304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.8.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
   version: 5.8.3
   resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:

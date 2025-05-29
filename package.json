@@ -33,6 +33,7 @@
     "prepare": "yarn build"
   },
   "devDependencies": {
-    "sass": "^1.89.0"
+    "sass": "^1.89.0",
+    "typescript": "^5.8.3"
   }
 }
