@@ -7,13 +7,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "yarn exec vite --port=3000",
-    "build": "yarn exec tsc -b && yarn exec vite build",
-    "lint": "yarn exec eslint .",
-    "lint:fix": "yarn exec eslint . --fix",
-    "format": "yarn exec prettier --write .",
-    "format:check": "yarn exec prettier --check .",
-    "preview": "yarn exec vite preview"
+    "start": "cd ../../.. && npx vite apps/fe/test-app --port=3000",
+    "build": "cd ../../.. && npx tsc -b && npx vite build apps/fe/test-app",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier --check .",
+    "preview": "cd ../../.. && npx vite preview apps/fe/test-app"
   },
   "dependencies": {
     "@mono/components": "workspace:^",
