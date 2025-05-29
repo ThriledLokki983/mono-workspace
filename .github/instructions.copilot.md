@@ -6,7 +6,13 @@
 
 ## Use Yarn for all package management (v4+)
 
-## Always, think first, make a plan, run it by me first before implementing
+## Always: Explore > Plan > Confirm > Code > Commit
+
+## Always: Write tests > commit > Code > Iterate > Commit
+
+## Always: Write code > Screenshot result (if possible) > Iterate
+
+## Always: Use context 7 for documentation reference
 
 1. **Documentation**: Maintain only one README.md at the root level - never create additional .md files
 2. **TypeScript**: Use TypeScript Project References for all package dependencies
