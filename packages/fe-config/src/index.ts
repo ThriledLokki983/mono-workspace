@@ -17,20 +17,51 @@ export interface AppConfig {
 
 export const createAppConfig = (
   overrides: Partial<AppConfig> = {}
-): AppConfig => ({
-  name: "Frontend App",
-  version: "1.0.0",
-  environment:
-    ((import.meta as any).env?.MODE as AppConfig["environment"]) ||
-    "development",
-  apiBaseUrl:
-    (import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:8000",
-  ...overrides,
-});
+): AppConfig => {
+  // Helper function to safely access import.meta.env
+  const getEnvValue = (key: string, fallback: string) => {
+    if (typeof import.meta !== "undefined" && "env" in import.meta) {
+      const env = (import.meta as { env: Record<string, unknown> }).env;
+      return (env[key] as string) || fallback;
+    }
+    return fallback;
+  };
 
-// Environment utilities
-export const isDevelopment = () =>
-  (import.meta as any).env?.MODE === "development";
-export const isProduction = () =>
-  (import.meta as any).env?.MODE === "production";
-export const isStaging = () => (import.meta as any).env?.MODE === "staging";
+  return {
+    name: "Frontend App",
+    version: "1.0.0",
+    environment: getEnvValue("MODE", "development") as AppConfig["environment"],
+    apiBaseUrl: getEnvValue("VITE_API_BASE_URL", "http://localhost:8000"),
+    ...overrides,
+  };
+};
+
+// Environment utilities with proper typing
+export const isDevelopment = () => {
+  if (typeof import.meta !== "undefined" && "env" in import.meta) {
+    return (
+      (import.meta as { env: Record<string, unknown> }).env.MODE ===
+      "development"
+    );
+  }
+  return false;
+};
+
+export const isProduction = () => {
+  if (typeof import.meta !== "undefined" && "env" in import.meta) {
+    return (
+      (import.meta as { env: Record<string, unknown> }).env.MODE ===
+      "production"
+    );
+  }
+  return false;
+};
+
+export const isStaging = () => {
+  if (typeof import.meta !== "undefined" && "env" in import.meta) {
+    return (
+      (import.meta as { env: Record<string, unknown> }).env.MODE === "staging"
+    );
+  }
+  return false;
+};

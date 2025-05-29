@@ -5091,6 +5091,7 @@ __metadata:
     react-router-dom: "npm:^7.1.1"
     sass: "npm:^1.89.0"
     typescript: "npm:^5.8.3"
+    typescript-eslint: "npm:^8.33.0"
     vite: "npm:^6.3.5"
   languageName: unknown
   linkType: soft
