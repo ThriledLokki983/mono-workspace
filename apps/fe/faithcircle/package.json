@@ -1,0 +1,26 @@
+{
+  "name": "faithcircle",
+  "description": "A React application for FaithCircle, a community platform for faith-based interactions",
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx vite --port=3000",
+    "build": "npx tsc -b && npx vite build",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier --check .",
+    "preview": "npx vite preview"
+  },
+  "dependencies": {
+    "@mono/components": "workspace:^",
+    "@mono/fe-config": "workspace:^",
+    "@mono/styles": "workspace:^"
+  },
+  "devDependencies": {
+    "@mono/eslint-config-custom": "workspace:^"
+  }
+}

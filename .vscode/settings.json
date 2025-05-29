@@ -5,7 +5,8 @@
     "source.fixAll.eslint": "explicit"
   },
   "eslint.workingDirectories": [
-    "apps/test-app",
+    "apps/fe/test-app",
+    "apps/fe/faithcircle",
     "packages/ui",
     "packages/config/eslint-config-custom"
   ],

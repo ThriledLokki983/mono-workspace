@@ -5,7 +5,8 @@
     { "path": "packages/fe-config" },
     { "path": "packages/components" },
     { "path": "packages/styles" },
-    { "path": "apps/fe/test-app" }
+    { "path": "apps/fe/test-app" },
+    { "path": "apps/fe/faithcircle" }
   ],
   "compilerOptions": {
     "incremental": true,
