@@ -15,9 +15,8 @@ export default defineConfig({
       scss: {
         api: 'modern-compiler',
         loadPaths: [
-          path.resolve(__dirname, '../../packages/styles/src'),
-          path.resolve(__dirname, '../../node_modules'),
-          path.resolve(__dirname, '../../node_modules'),
+          path.resolve(__dirname, '../../../packages/styles/src'),
+          path.resolve(__dirname, '../../../node_modules'),
         ],
         additionalData: `
           @use "sass:color";
@@ -38,16 +37,16 @@ export default defineConfig({
     alias: {
       '@mono/ui': path.resolve(
         __dirname,
-        '../../packages/components/index.tsx'
+        '../../../packages/components/index.tsx'
       ),
-      '@mono/types': path.resolve(__dirname, '../../packages/types/src'),
-      '@mono/styles': path.resolve(__dirname, '../../packages/styles/src'),
+      '@mono/types': path.resolve(__dirname, '../../../packages/types/src'),
+      '@mono/styles': path.resolve(__dirname, '../../../packages/styles/src'),
     },
   },
   server: {
     fs: {
-      // Allow serving files from one level up to the project root
-      allow: ['..'],
+      // Allow serving files from the monorepo root
+      allow: ['../../..'],
     },
   },
 });

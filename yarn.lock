@@ -6148,9 +6148,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"test-app@workspace:apps/test-app":
+"test-app@workspace:apps/fe/test-app":
   version: 0.0.0-use.local
-  resolution: "test-app@workspace:apps/test-app"
+  resolution: "test-app@workspace:apps/fe/test-app"
   dependencies:
     "@eslint/js": "npm:^9.25.0"
     "@mono/eslint-config-custom": "workspace:*"

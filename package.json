@@ -10,7 +10,8 @@
   "workspaces": [
     "packages/*",
     "packages/config/*",
-    "apps/*"
+    "apps/fe/*",
+    "apps/be/*"
   ],
   "packageManager": "yarn@4.9.1",
   "scripts": {
