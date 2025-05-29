@@ -7,32 +7,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --port=3000",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "start": "yarn exec vite --port=3000",
+    "build": "yarn exec tsc -b && yarn exec vite build",
+    "lint": "yarn exec eslint .",
+    "lint:fix": "yarn exec eslint . --fix",
+    "format": "yarn exec prettier --write .",
+    "format:check": "yarn exec prettier --check .",
+    "preview": "yarn exec vite preview"
   },
   "dependencies": {
     "@mono/components": "workspace:^",
-    "@mono/styles": "workspace:^",
-    "lucide-react": "^0.511.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "@mono/fe-config": "workspace:^",
+    "@mono/styles": "workspace:^"
   },
   "devDependencies": {
-    "@eslint/js": "^9.27.0",
-    "@mono/eslint-config-custom": "workspace:^",
-    "@types/node": "^22.15.24",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react-swc": "^3.10.0",
-    "eslint": "^9.27.0",
-    "prettier": "^3.5.3",
-    "sass": "^1.89.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "@mono/eslint-config-custom": "workspace:^"
   }
 }

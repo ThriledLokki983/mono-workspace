@@ -1,4 +1,5 @@
 import type { BaseComponentProps } from "./base";
+import React from "react";
 
 /**
  * Navigation item configuration

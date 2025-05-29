@@ -422,18 +422,10 @@ __metadata:
     "@mono/eslint-config-custom": "workspace:^"
     "@mono/styles": "workspace:^"
     "@mono/types": "workspace:^"
-    "@types/react": "npm:^19.1.6"
-    "@types/react-dom": "npm:^19.1.5"
-    eslint: "npm:^9.27.0"
-    lucide-react: "npm:^0.511.0"
-    prettier: "npm:^3.5.3"
-    react: "npm:^19.1.0"
-    react-aria-components: "npm:^1.9.0"
-    react-dom: "npm:^19.1.0"
-    sass: "npm:^1.89.0"
-    typescript: "npm:^5.8.3"
   peerDependencies:
+    lucide-react: ">=0.500.0"
     react: ">=18.0.0"
+    react-aria-components: ">=1.0.0"
     react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
@@ -458,6 +450,23 @@ __metadata:
   peerDependencies:
     eslint: ">=8.0.0"
     typescript: ">=4.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@mono/fe-config@workspace:^, @mono/fe-config@workspace:packages/fe-config":
+  version: 0.0.0-use.local
+  resolution: "@mono/fe-config@workspace:packages/fe-config"
+  dependencies:
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/types": "workspace:^"
+  peerDependencies:
+    "@tanstack/react-query": ">=5.0.0"
+    "@vitejs/plugin-react-swc": ">=3.0.0"
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+    react-router: ">=7.0.0"
+    react-router-dom: ">=7.0.0"
+    vite: ">=6.0.0"
   languageName: unknown
   linkType: soft
 
@@ -2677,6 +2686,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.79.0":
+  version: 5.79.0
+  resolution: "@tanstack/query-core@npm:5.79.0"
+  checksum: 10c0/614c9f4dc7cb4df9c6804f67a76e2d580af5fa7b25505c2e3c5137bfa40d2005a1a96606c9f8e533754c78722e23708948760104a460fd8bc06df990fea42afb
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-devtools@npm:5.76.0":
+  version: 5.76.0
+  resolution: "@tanstack/query-devtools@npm:5.76.0"
+  checksum: 10c0/2bee4a39c083a0260bd15e98f02d39f078d363430b74da313260ff37deb4b416d874e3a58f4691698f848076532eaf104ff2843a016aec6186dd1c39c5dd3d6f
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.59.0":
+  version: 5.79.0
+  resolution: "@tanstack/react-query-devtools@npm:5.79.0"
+  dependencies:
+    "@tanstack/query-devtools": "npm:5.76.0"
+  peerDependencies:
+    "@tanstack/react-query": ^5.79.0
+    react: ^18 || ^19
+  checksum: 10c0/40fb160fa65edbe9caa710215139ae036572a9185858af2edbaeace185c8b7e122bda901ce14ac74b1a2e91957a363edf3f4cd28b56a0e188882ae9155cca49f
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.59.0":
+  version: 5.79.0
+  resolution: "@tanstack/react-query@npm:5.79.0"
+  dependencies:
+    "@tanstack/query-core": "npm:5.79.0"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/f1d440075b7f8e7738cd4f26a87a089c0efaf282e633cfb9db249ef20068d5f4f14c9d990a304b96df183bffc8839ee579853fef212c213510c425b8092630be
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:1.0.7, @types/estree@npm:^1.0.6":
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
@@ -3255,6 +3301,13 @@ __metadata:
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
   checksum: 10c0/c996b1cfdf95b6c90fee4dae37e332c8b6eb7d106430c17d538034c0ad9a1630cb194d2ab37293b1bdd4d779494beee7786d586a50bd9376fd6f7bcc2bd4c98f
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "cookie@npm:1.0.2"
+  checksum: 10c0/fd25fe79e8fbcfcaf6aa61cd081c55d144eeeba755206c058682257cb38c4bd6795c6620de3f064c740695bb65b7949ebb1db7a95e4636efb8357a335ad3f54b
   languageName: node
   linkType: hard
 
@@ -5020,8 +5073,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mono-workspace@workspace:."
   dependencies:
+    "@eslint/js": "npm:^9.27.0"
+    "@tanstack/react-query": "npm:^5.59.0"
+    "@tanstack/react-query-devtools": "npm:^5.59.0"
+    "@types/node": "npm:^22.15.24"
+    "@types/react": "npm:^19.1.6"
+    "@types/react-dom": "npm:^19.1.5"
+    "@vitejs/plugin-react-swc": "npm:^3.10.0"
+    eslint: "npm:^9.27.0"
+    lucide-react: "npm:^0.511.0"
+    open-props: "npm:^1.7.6"
+    prettier: "npm:^3.5.3"
+    react: "npm:^19.1.0"
+    react-aria-components: "npm:^1.9.0"
+    react-dom: "npm:^19.1.0"
+    react-router: "npm:^7.1.1"
+    react-router-dom: "npm:^7.1.1"
     sass: "npm:^1.89.0"
     typescript: "npm:^5.8.3"
+    vite: "npm:^6.3.5"
   languageName: unknown
   linkType: soft
 
@@ -5177,7 +5247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open-props@npm:^1.7.15":
+"open-props@npm:^1.7.15, open-props@npm:^1.7.6":
   version: 1.7.15
   resolution: "open-props@npm:1.7.15"
   checksum: 10c0/593f108ca9ee2b20aed2d806a4fb1549a6a7ef70373044ae067b402652e409fda72dc6dc7ab0b562ef35cce7201a9331873f9d664d42dead60cf874a0a0a9673
@@ -5494,6 +5564,34 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
+"react-router-dom@npm:^7.1.1":
+  version: 7.6.1
+  resolution: "react-router-dom@npm:7.6.1"
+  dependencies:
+    react-router: "npm:7.6.1"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/9d448d82d73c18475c8e3e2f93cf9dd16ca0488379e295f5a949aa849aaf770eb6257d48f2aef2c62ac1635e8ccddd0fa53173c2479525305eb656936f330812
+  languageName: node
+  linkType: hard
+
+"react-router@npm:7.6.1, react-router@npm:^7.1.1":
+  version: 7.6.1
+  resolution: "react-router@npm:7.6.1"
+  dependencies:
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10c0/9968dcccc6695671cb216a74a756d717f47d5b8613869be72764966c2dc252ce12aa91a5f74838776b78d65a2297d7d5455c26a3ed78a380897905383b30c7d8
   languageName: node
   linkType: hard
 
@@ -5814,6 +5912,13 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10c0/aca305edfbf2383c22571cb7714f48cadc7ac95371b4b52362fb8eeffdfbc0de0669368b82b2b15978f8848f01d7114da65697e56cd8c37b0dab8c58e543f9ea
+  languageName: node
+  linkType: hard
+
+"set-cookie-parser@npm:^2.6.0":
+  version: 2.7.1
+  resolution: "set-cookie-parser@npm:2.7.1"
+  checksum: 10c0/060c198c4c92547ac15988256f445eae523f57f2ceefeccf52d30d75dedf6bff22b9c26f756bd44e8e560d44ff4ab2130b178bd2e52ef5571bf7be3bd7632d9a
   languageName: node
   linkType: hard
 
@@ -6163,22 +6268,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test-app@workspace:apps/fe/test-app"
   dependencies:
-    "@eslint/js": "npm:^9.27.0"
     "@mono/components": "workspace:^"
     "@mono/eslint-config-custom": "workspace:^"
+    "@mono/fe-config": "workspace:^"
     "@mono/styles": "workspace:^"
-    "@types/node": "npm:^22.15.24"
-    "@types/react": "npm:^19.1.6"
-    "@types/react-dom": "npm:^19.1.5"
-    "@vitejs/plugin-react-swc": "npm:^3.10.0"
-    eslint: "npm:^9.27.0"
-    lucide-react: "npm:^0.511.0"
-    prettier: "npm:^3.5.3"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    sass: "npm:^1.89.0"
-    typescript: "npm:^5.8.3"
-    vite: "npm:^6.3.5"
   languageName: unknown
   linkType: soft
 

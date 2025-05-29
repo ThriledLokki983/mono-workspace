@@ -1,52 +1,13 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import { createViteConfig } from '@mono/fe-config/vite';
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  css: {
-    modules: {
-      // Enable CSS modules for .module.css, .module.scss files
-      localsConvention: 'camelCaseOnly',
-      generateScopedName: '[name]__[local]___[hash:base64:5]',
-    },
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-        loadPaths: [
-          path.resolve(__dirname, '../../../packages/styles/src'),
-          path.resolve(__dirname, '../../../node_modules'),
-        ],
-        additionalData: `
-          @use "sass:color";
-          @use "sass:math";
-        `,
-      },
-    },
+export default createViteConfig({
+  appName: 'test-app',
+  port: 3000,
+  additionalAliases: {
+    // Add any app-specific aliases here
   },
-  optimizeDeps: {
-    include: ['@mono/components', 'open-props'],
-  },
-  build: {
-    commonjsOptions: {
-      include: [/node_modules/, /packages/],
-    },
-  },
-  resolve: {
-    alias: {
-      '@mono/components': path.resolve(
-        __dirname,
-        '../../../packages/components/index.tsx'
-      ),
-      '@mono/types': path.resolve(__dirname, '../../../packages/types/src'),
-      '@mono/styles': path.resolve(__dirname, '../../../packages/styles/src'),
-    },
-  },
-  server: {
-    fs: {
-      // Allow serving files from the monorepo root
-      allow: ['../../..'],
-    },
-  },
+  additionalOptimizeDeps: [
+    'open-props',
+    // Add any app-specific dependencies to optimize here
+  ],
 });

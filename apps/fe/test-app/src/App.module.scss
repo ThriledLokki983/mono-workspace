@@ -1,4 +1,4 @@
-@use '@mono/styles/base-styles.scss';
+@use 'base-styles' as *;
 
 #root {
   min-height: 100dvh;

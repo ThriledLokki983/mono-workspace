@@ -1,7 +1,7 @@
 {
   "name": "mono-workspace",
   "version": "1.0.0",
-  "description": "this is a monorepo for all my work going forward from now",
+  "description": "A comprehensive TypeScript monorepo for frontend and backend applications with shared component libraries and design system",
   "main": "index.js",
   "author": "Gideon Nimoh",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "build:clean": "npx tsc -b --clean",
     "build:watch": "npx tsc -b --watch",
     "start": "yarn workspace test-app start",
+    "install:all": "yarn workspaces foreach --all --parallel run install",
     "lint": "yarn workspaces foreach --all --parallel run lint",
     "lint:fix": "yarn workspaces foreach --all --parallel run lint:fix",
     "format": "yarn workspaces foreach --all --parallel run format",
@@ -32,8 +33,27 @@
     "precommit": "yarn lint:fix && yarn format",
     "prepare": "yarn build"
   },
+  "dependencies": {
+    "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-query-devtools": "^5.59.0",
+    "lucide-react": "^0.511.0",
+    "open-props": "^1.7.6",
+    "react": "^19.1.0",
+    "react-aria-components": "^1.9.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.1.1",
+    "react-router-dom": "^7.1.1"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/node": "^22.15.24",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react-swc": "^3.10.0",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
     "sass": "^1.89.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }
