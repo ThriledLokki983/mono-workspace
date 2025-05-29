@@ -7,13 +7,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "cd ../../.. && npx vite apps/fe/test-app --port=3000",
-    "build": "cd ../../.. && npx tsc -b && npx vite build apps/fe/test-app",
+    "start": "npx vite --port=3000",
+    "build": "npx tsc -b && npx vite build",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint . --fix",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check .",
-    "preview": "cd ../../.. && npx vite preview apps/fe/test-app"
+    "preview": "npx vite preview"
   },
   "dependencies": {
     "@mono/components": "workspace:^",
