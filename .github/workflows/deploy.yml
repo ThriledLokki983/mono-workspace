@@ -31,13 +31,7 @@ jobs:
         run: yarn build
 
       - name: Build test-app
-        run: |
-          if yarn workspace test-app run build --dry-run 2>/dev/null; then
-            yarn workspace test-app build
-          else
-            echo "No build script found for test-app"
-            exit 1
-          fi
+        run: yarn workspace test-app build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
