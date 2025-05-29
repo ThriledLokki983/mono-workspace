@@ -17,7 +17,7 @@ export interface User extends BaseEntity {
 }
 
 // API Response types (basic)
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T> {
   data: T;
   message?: string;
   success: boolean;
@@ -26,7 +26,7 @@ export interface ApiResponse<T = any> {
 export interface ApiError {
   error: string;
   code: number;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
 }
 
 // Utility types
@@ -41,4 +41,4 @@ export type Environment = "development" | "staging" | "production";
 export type ThemeMode = "light" | "dark" | "system";
 
 // Export UI types
-export * from "./ui/index.js";
+export * from "./fe/ui/index.js";

@@ -24,7 +24,7 @@ export interface AppConfig {
 // Loading states
 export type LoadingState = "idle" | "loading" | "succeeded" | "failed";
 
-export interface AsyncState<T = any> {
+export interface AsyncState<T> {
   data: T | null;
   status: LoadingState;
   error: string | null;

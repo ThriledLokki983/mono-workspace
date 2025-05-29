@@ -1,4 +1,4 @@
-import type { ButtonProps } from '@mono/types/ui';
+import type { ButtonProps } from '@mono/types/fe/ui';
 
 export const Button = ({
   children,
@@ -53,4 +53,4 @@ export const Button = ({
 };
 
 // Export types for consumers
-export type { ButtonProps, ButtonVariant, ButtonSize } from '@mono/types/ui';
+export type { ButtonProps, ButtonVariant, ButtonSize } from '@mono/types/fe/ui';
