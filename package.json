@@ -24,7 +24,7 @@
     "format:check": "yarn workspaces foreach --all --parallel run format:check",
     "test": "yarn workspaces foreach --all run test",
     "test:watch": "yarn workspaces foreach --all run test:watch",
-    "typecheck": "npx tsc -b --noEmit",
+    "typecheck": "npx tsc -b",
     "clean": "yarn workspaces foreach --all run clean && yarn build:clean",
     "reset": "yarn clean && rm -rf node_modules && yarn install",
     "ci": "yarn lint && yarn format:check && yarn build && yarn typecheck",
