@@ -1,6 +1,12 @@
 // Main entry point for @mono/ui components
-export { Button } from './src/ui/button';
-export { default as Link } from './src/ui/link/link';
+export { Button, Link } from './src/ui';
 
 // Re-export types for convenience
-export type { ButtonProps, ButtonVariant, ButtonSize } from '@mono/types/fe/ui';
+export type {
+  ButtonProps,
+  ButtonVariant,
+  ButtonSize,
+  LinkProps,
+  LinkVariant,
+  LinkSize,
+} from './src/ui';

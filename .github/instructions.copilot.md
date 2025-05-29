@@ -4,6 +4,8 @@
 
 ### Workspace Configuration Rules:
 
+## Use Yarn for all package management (v4+)
+
 1. **Documentation**: Maintain only one README.md at the root level - never create additional .md files
 2. **TypeScript**: Use TypeScript Project References for all package dependencies
 3. **Shared Configuration**: All packages inherit from centralized configs in `packages/config/`

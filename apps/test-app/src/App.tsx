@@ -1,16 +1,25 @@
 import { useState } from 'react';
-import { Button } from '@mono/ui';
+import { Button, Link } from '@mono/ui';
+import { AccessibilityDemo } from './AccessibilityDemo';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import styles from './App.module.scss';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCountClick = () => {
+    setIsLoading(true);
+    setCount(count => count + 1);
+    // Simulate loading state
+    setTimeout(() => setIsLoading(false), 1000);
+  };
 
   return (
     <div className={styles.app}>
       <div className={styles.hero}>
-        <h1 className={styles.title}>Luxury Real Estate Platform</h1>
+        <h1 className={styles.title}>Frontend Platform</h1>
         <p className={styles.subtitle}>
           A modern TypeScript monorepo with unified development tooling, shared
           component libraries, and elegant design system.
@@ -18,26 +27,21 @@ function App() {
       </div>
 
       <div className={styles.logoSection}>
-        <a
+        <Link
           href='https://vitejs.dev'
-          target='_blank'
-          rel='noopener noreferrer'
-          className={styles.logoLink}
+          external
+          variant='primary'
+          size='medium'
         >
           <img src={viteLogo} className={styles.logo} alt='Vite logo' />
-        </a>
-        <a
-          href='https://react.dev'
-          target='_blank'
-          rel='noopener noreferrer'
-          className={styles.logoLink}
-        >
+        </Link>
+        <Link href='https://react.dev' external variant='primary' size='medium'>
           <img
             src={reactLogo}
             className={`${styles.logo} ${styles.reactLogo}`}
             alt='React logo'
           />
-        </a>
+        </Link>
       </div>
 
       <div className={styles.card}>
@@ -50,9 +54,10 @@ function App() {
 
         <div className={styles.buttonGroup}>
           <Button
-            onClick={() => setCount(count => count + 1)}
+            onClick={handleCountClick}
             variant='primary'
             size='medium'
+            loading={isLoading}
           >
             Count is {count}
           </Button>
@@ -64,22 +69,62 @@ function App() {
           <Button variant='outline' size='small'>
             Learn More
           </Button>
+
+          <Button variant='outline' size='large' isDisabled>
+            Disabled Button
+          </Button>
+        </div>
+
+        <div className={styles.buttonGroup}>
+          <h3>Link Component Examples</h3>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link href='#' variant='primary' size='small'>
+              Primary Link
+            </Link>
+
+            <Link href='#' variant='secondary' size='medium'>
+              Secondary Link
+            </Link>
+
+            <Link href='#' variant='muted' size='large'>
+              Muted Link
+            </Link>
+
+            <Link href='#' variant='danger' size='medium'>
+              Danger Link
+            </Link>
+
+            <Link
+              href='https://github.com'
+              external
+              variant='primary'
+              size='medium'
+            >
+              External Link
+            </Link>
+
+            <Link href='#' variant='primary' size='medium' underline>
+              Underlined Link
+            </Link>
+          </div>
         </div>
       </div>
 
       <footer className={styles.footer}>
         <p>
           Click on the Vite and React logos to learn more.{' '}
-          <a
+          <Link
             href='https://vitejs.dev/guide/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={styles.docsLink}
+            external
+            variant='primary'
+            size='medium'
           >
             Read the docs
-          </a>
+          </Link>
         </p>
       </footer>
+
+      <AccessibilityDemo />
     </div>
   );
 }

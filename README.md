@@ -12,7 +12,8 @@ A modern TypeScript monorepo with unified development tooling, shared component 
 - 🎯 **Unified Linting**: Shared ESLint + Prettier configuration across all packages
 - ⚡ **Modern Stack**: React 19, TypeScript, Vite, ESLint 9
 - 🔧 **VS Code Integration**: Auto-format and auto-fix on save
-- 📦 **Shared Components**: Reusable UI components via `@mono/ui`
+- 📦 **Shared Components**: Reusable UI components via `@mono/ui` with React Aria
+- ♿ **Accessibility First**: Components built with React Aria for WCAG 2.1 AA compliance
 - 🚀 **Development Ready**: Hot reload, TypeScript checking, and instant feedback
 - 📐 **Consistent Styling**: Unified code formatting rules across the entire codebase
 - ⚡ **TypeScript Project References**: Faster builds with incremental compilation
@@ -55,16 +56,21 @@ mono-workspace/
 │   │   └── package.json           # Types package configuration
 │   ├── components/                # Shared React UI components (published as @mono/ui)
 │   │   ├── index.tsx              # Main component exports entry point
+│   │   ├── REACT_ARIA_INTEGRATION.md  # React Aria implementation guide
 │   │   ├── src/                   # Component source files
 │   │   │   ├── ui/                # UI components
-│   │   │   │   ├── button/        # Button component
-│   │   │   │   │   └── index.tsx  # Button implementation
-│   │   │   │   └── link/          # Link component
-│   │   │   │       └── link.tsx   # Link implementation
+│   │   │   │   ├── index.ts       # Component exports barrel
+│   │   │   │   ├── button/        # Button component with React Aria
+│   │   │   │   │   ├── Button.tsx # Button implementation
+│   │   │   │   │   └── Button.module.scss  # Button styling with design tokens
+│   │   │   │   └── link/          # Link component with React Aria
+│   │   │   │       ├── Link.tsx   # Link implementation
+│   │   │   │       └── Link.module.scss    # Link styling with variants
+│   │   │   ├── global.d.ts        # CSS module type declarations
 │   │   │   └── utils/             # Component utilities
 │   │   ├── eslint.config.js       # Package ESLint config
 │   │   ├── tsconfig.json          # Components package TypeScript config
-│   │   └── package.json           # Component library config (name: @mono/ui)
+│   │   └── package.json           # Component library config with React Aria deps
 │   └── config/                    # Configuration packages
 │       └── eslint-config-custom/  # Shared ESLint/Prettier config
 │           ├── index.js           # Base config for Node.js
@@ -151,10 +157,11 @@ yarn build:clean && yarn build
 
 #### `@mono/ui`
 
-- **Type**: React component library
-- **Purpose**: Shared UI components across applications
-- **Dependencies**: Uses types from `@mono/types`
-- **Exports**: Button component (example)
+- **Type**: React component library with React Aria integration
+- **Purpose**: Accessible, reusable UI components across applications
+- **Features**: WCAG 2.1 AA compliance, keyboard navigation, screen reader support
+- **Dependencies**: Uses types from `@mono/types`, built with React Aria Components
+- **Exports**: Button, Link components with full accessibility features
 - **Usage**: `import { Button } from '@mono/ui'`
 
 #### `@mono/eslint-config-custom`
@@ -390,6 +397,89 @@ test-app (React App)
 - ✅ **React Rules**: React-specific linting (hooks, JSX)
 - ✅ **Unused Variables**: Detection with underscore prefix pattern
 
+## ♿ React Aria Integration
+
+The component library is built with [React Aria Components](https://react-spectrum.adobe.com/react-aria/) for world-class accessibility and user experience.
+
+### Accessibility Features
+
+- 🎹 **Keyboard Navigation**: Full keyboard support (Tab, Shift+Tab, Enter, Space)
+- 👀 **Focus Management**: Visible focus indicators and proper focus flow
+- 📢 **Screen Reader Support**: Comprehensive ARIA attributes and announcements
+- 🔧 **Loading States**: Proper `aria-busy` and loading state handling
+- 🚫 **Disabled States**: Correct `aria-disabled` and keyboard interaction management
+- 🔗 **External Links**: Automatic external link indicators and proper announcements
+- 📱 **Touch-Friendly**: Optimized touch targets for mobile devices
+- 🎨 **High Contrast**: Support for high contrast and reduced motion preferences
+
+### Available Components
+
+#### Button Component
+
+```tsx
+import { Button } from '@mono/ui';
+
+<Button
+  variant="primary" | "secondary" | "outline" | "ghost" | "danger"
+  size="small" | "medium" | "large"
+  loading={boolean}
+  isDisabled={boolean}
+  leftIcon={ReactNode}
+  rightIcon={ReactNode}
+  fullWidth={boolean}
+  onPress={() => {}}  // Enhanced press handling
+>
+  Button Text
+</Button>
+```
+
+#### Link Component
+
+```tsx
+import { Link } from '@mono/ui';
+
+<Link
+  href="https://example.com"
+  variant="primary" | "secondary" | "muted" | "danger"
+  size="small" | "medium" | "large"
+  external={boolean}    // Auto adds target="_blank"
+  underline={boolean}   // Always show underline
+  isDisabled={boolean}
+>
+  Link Text
+</Link>
+```
+
+### Design System Integration
+
+Components use the existing Open Props design system with luxury styling:
+
+```scss
+// Colors
+--color-brand-primary, --color-brand-light, --color-brand-dark
+--color-accent-primary, --color-text-primary, --color-error
+--color-focus  // For focus indicators
+
+// Spacing & Typography
+--spacing-xs, --spacing-sm, --spacing-md, --spacing-lg
+--font-family-primary, --font-weight-medium, --line-height-normal
+
+// Effects
+--radius-sm, --radius-md, --transition-fast, --shadow-md
+```
+
+### Testing Accessibility
+
+The test application includes an interactive accessibility demo showcasing:
+
+- Keyboard navigation patterns
+- Focus management examples
+- Screen reader compatibility
+- Touch target verification
+- Loading and disabled state handling
+
+**Learn More**: See [`packages/components/REACT_ARIA_INTEGRATION.md`](./packages/components/REACT_ARIA_INTEGRATION.md) for detailed implementation guide.
+
 ## 🚦 Adding New Packages
 
 ### Create a New App
@@ -438,11 +528,14 @@ yarn add -D @mono/eslint-config-custom @mono/types eslint prettier typescript
 1. Follow the established ESLint and Prettier configurations
 2. Use TypeScript for all new code
 3. Import shared types from `@mono/types` instead of duplicating
-4. Add shared components to `@mono/ui`
-5. Update type definitions when adding new interfaces
-6. Test changes across affected packages
-7. Ensure all linting and formatting checks pass
-8. Run `yarn build` to verify TypeScript compilation
+4. Add shared components to `@mono/ui` with React Aria integration
+5. Ensure components meet WCAG 2.1 AA accessibility standards
+6. Use existing design tokens from the Open Props system
+7. Update type definitions when adding new interfaces
+8. Test changes across affected packages
+9. Verify keyboard navigation and screen reader compatibility
+10. Ensure all linting and formatting checks pass
+11. Run `yarn build` to verify TypeScript compilation
 
 ## 🔍 Troubleshooting
 

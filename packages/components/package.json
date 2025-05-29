@@ -25,7 +25,9 @@
     "format:check": "prettier --check *.{js,jsx,ts,tsx,json,md}"
   },
   "dependencies": {
-    "@mono/types": "workspace:*"
+    "@mono/styles": "workspace:*",
+    "@mono/types": "workspace:*",
+    "react-aria-components": "^1.4.0"
   },
   "devDependencies": {
     "@mono/eslint-config-custom": "workspace:*",
@@ -35,6 +37,7 @@
     "prettier": "^3.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sass": "^1.83.1",
     "typescript": "~5.8.3"
   },
   "peerDependencies": {
