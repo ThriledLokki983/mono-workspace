@@ -42,12 +42,10 @@ jobs:
         run: |
           # Build all apps that have build scripts
           for app in apps/*/; do
-            if [ -f "${app}package.json" ]; then
+            if [ -d "$app" ] && [ -f "${app}package.json" ]; then
               app_name=$(basename "$app")
-              if yarn workspace "$app_name" run build --dry-run 2>/dev/null; then
-                echo "Building $app_name..."
-                yarn workspace "$app_name" build
-              fi
+              echo "Building $app_name..."
+              yarn workspace "$app_name" build
             fi
           done
 

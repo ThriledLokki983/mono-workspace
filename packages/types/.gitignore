@@ -26,9 +26,6 @@ coverage/
 yarn.lock
 package-lock.json
 
-# TypeScript output files
-*.js
-
 # TypeScript source maps
 *.js.map
 

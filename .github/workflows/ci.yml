@@ -254,7 +254,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Type check
-        run: yarn build --dry
+        run: yarn typecheck
 
   # Build apps for production (optional)
   build-apps:
@@ -296,12 +296,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build test-app
-        run: |
-          if [ -f "apps/test-app/package.json" ] && yarn workspace test-app run build --dry-run 2>/dev/null; then
-            yarn workspace test-app build
-          else
-            echo "No build script found for test-app"
-          fi
+        run: yarn workspace test-app build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
