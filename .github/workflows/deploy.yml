@@ -5,12 +5,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 env:
   NODE_VERSION: "20"
 
 jobs:
-  deploy-test-app:
-    name: Deploy Test App
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -33,32 +41,18 @@ jobs:
       - name: Build test-app
         run: yarn workspace test-app build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: success()
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.FINEGRAIN_TOKEN }}
-          publish_dir: ./apps/test-app/dist
-          cname: # Add your custom domain here if you have one
+          path: apps/test-app/dist
 
-
-      # Alternative: Deploy to Vercel
-      # - name: Deploy to Vercel
-      #   uses: vercel/action@v1
-      #   with:
-      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      #     vercel-org-id: ${{ secrets.ORG_ID }}
-      #     vercel-project-id: ${{ secrets.PROJECT_ID }}
-      #     working-directory: ./apps/test-app
-
-      # Alternative: Deploy to Netlify
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v3.0
-      #   with:
-      #     publish-dir: './apps/test-app/dist'
-      #     production-branch: main
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     deploy-message: "Deploy from GitHub Actions"
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

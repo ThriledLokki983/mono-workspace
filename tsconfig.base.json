@@ -65,10 +65,10 @@
     /* Path Mapping */
     "baseUrl": ".",
     "paths": {
-      "@mono/types": ["packages/types/src"],
-      "@mono/types/*": ["packages/types/src/*"],
-      "@mono/ui": ["packages/ui"],
-      "@mono/ui/*": ["packages/ui/*"]
+      "@mono/types": ["packages/types/dist"],
+      "@mono/types/*": ["packages/types/dist/*"],
+      "@mono/ui": ["packages/ui/dist"],
+      "@mono/ui/*": ["packages/ui/dist/*"]
     }
   },
   "exclude": [
