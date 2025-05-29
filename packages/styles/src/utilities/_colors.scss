@@ -1,0 +1,97 @@
+// =============================================================================
+// UTILITY - COLORS
+// Text and background color utilities
+// =============================================================================
+
+// Text Colors
+.text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.text-inverse {
+  color: var(--color-text-inverse) !important;
+}
+
+.text-brand {
+  color: var(--color-brand-primary) !important;
+}
+
+.text-accent {
+  color: var(--color-accent-primary) !important;
+}
+
+.text-success {
+  color: var(--color-success) !important;
+}
+
+.text-warning {
+  color: var(--color-warning) !important;
+}
+
+.text-error {
+  color: var(--color-error) !important;
+}
+
+.text-info {
+  color: var(--color-info) !important;
+}
+
+// Background Colors
+.bg-light {
+  background-color: var(--color-background-light) !important;
+}
+
+.bg-surface {
+  background-color: var(--color-background-surface) !important;
+}
+
+.bg-elevated {
+  background-color: var(--color-background-elevated) !important;
+}
+
+.bg-brand {
+  background-color: var(--color-brand-primary) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.bg-accent {
+  background-color: var(--color-accent-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.bg-success {
+  background-color: var(--color-success) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.bg-warning {
+  background-color: var(--color-warning) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.bg-error {
+  background-color: var(--color-error) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.bg-info {
+  background-color: var(--color-info) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+// Transparent backgrounds
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.bg-overlay {
+  background-color: var(--color-background-overlay) !important;
+}

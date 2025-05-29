@@ -1,0 +1,13 @@
+# Compiled output
+dist/
+build/
+*.css.map
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+*.tsbuildinfo
+
+# Generated files
+coverage/

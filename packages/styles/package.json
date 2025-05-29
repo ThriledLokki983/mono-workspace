@@ -1,0 +1,41 @@
+{
+  "name": "@mono/styles",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared SCSS styles and design system for mono-workspace frontend applications",
+  "main": "src/base-styles.scss",
+  "files": [
+    "src/"
+  ],
+  "keywords": [
+    "scss",
+    "styles",
+    "design-system",
+    "css",
+    "frontend"
+  ],
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "dependencies": {
+    "install": "^0.13.0",
+    "open-props": "^1.7.15"
+  },
+  "devDependencies": {
+    "@mono/eslint-config-custom": "workspace:*",
+    "eslint": "^9.10.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.89.0",
+    "typescript": "^5.6.2"
+  },
+  "peerDependencies": {
+    "sass": "^1.80.0"
+  },
+  "scripts": {
+    "build": "sass --load-path=../../node_modules src/base-styles.scss dist/styles.css --no-source-map",
+    "build:watch": "sass --load-path=../../node_modules src/base-styles.scss dist/styles.css --watch --no-source-map",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  }
+}

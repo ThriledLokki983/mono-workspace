@@ -30,5 +30,8 @@
     "ci": "yarn lint && yarn format:check && yarn build && yarn typecheck",
     "precommit": "yarn lint:fix && yarn format",
     "prepare": "yarn build"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
   }
 }

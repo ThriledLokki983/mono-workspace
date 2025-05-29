@@ -1,0 +1,182 @@
+// =============================================================================
+// OPEN PROPS INTEGRATION
+// Luxury real estate theme extending Open Props foundation
+// =============================================================================
+@use 'sass:meta';
+
+// Import Open Props CSS custom properties from the installed package
+// Note: Using CSS content injection to include Open Props variables during SCSS compilation
+@include meta.load-css('open-props/open-props.min.css');
+@include meta.load-css('open-props/normalize.min.css');
+
+// Define our luxury real estate color extensions using Open Props colors as base
+:root {
+  // --------------------------------------- //
+
+  // BRAND COLORS
+  --brand: #3a4f41; /* Deep Olive Green */
+  --brand-light: #5a6b5a; /* Light Olive Green */
+  --brand-dark: #2a3b2a; /* Dark Forest Green */
+  --accent: #f4c77b; /* Soft Amber */
+  --accent-light: #f9e0b3; /* Light Amber */
+  --accent-dark: #d9a45c; /* Dark Amber */
+  --brand-alert: #c25a5a; /* Clay Red */
+
+  // SURFACE COLORS
+  --background-primary: #f8f5f0; /* Bone White */
+  --background-surface: #eae6e1; /* Warm Fog */
+  --background-surface-muted: #dad5cf; /* Muted Taupe */
+
+  // TEXT COLORS
+  --color-text-primary: #2a2a2a; /* Charcoal Ink */
+  --color-text-secondary: #6e7673; /* Slate Gray */
+  --color-text-muted: #6e7673;
+
+  // STATUS COLORS
+  --color-success: #3a4f41;
+  --color-warning: #f4c77b;
+  --color-error: #c25a5a;
+  --color-info: #6e7673;
+
+  // --------------------------------------- //
+
+  // Primary Luxury Palette - extending Open Props colors
+  --color-brand-primary: var(--brand); // Deep forest green for stability
+  --color-brand-light: var(--brand-light); // Light olive green for freshness
+  --color-brand-dark: var(--brand-dark); // Dark forest green for depth
+
+  --color-accent-primary: var(--accent); // Warm amber for CTAs
+  --color-accent-light: var(--accent-light); // Light amber for highlights
+  --color-accent-dark: var(--accent-dark); // Dark amber for contrast
+
+  // Background colors using Open Props neutrals
+  --color-background-light: var(--background-primary);
+  --color-background-surface: var(--background-surface);
+  --color-background-elevated: var(--background-surface-muted);
+  --color-background-overlay: rgb(from var(--gray-9) r g b / 0.6);
+
+  // Text colors
+  --color-text-primary: var(--gray-9);
+  --color-text-secondary: var(--gray-7);
+  --color-text-muted: var(--gray-5);
+  --color-text-inverse: var(--gray-0);
+
+  // UI colors
+  --color-ui-secondary: var(--gray-6);
+  --color-divider: var(--gray-3);
+
+  // Semantic colors using Open Props
+  --color-success: var(--green-6);
+  --color-warning: var(--orange-5);
+  --color-error: var(--red-6);
+  --color-info: var(--blue-6);
+
+  // Interactive states
+  --color-focus: var(--color-brand-primary);
+  --color-hover-bg: var(--stone-2);
+  --color-active-bg: var(--stone-3);
+
+  // Typography scale extending Open Props
+  --font-family-primary: var(--font-sans);
+  --font-family-secondary: var(--font-serif);
+  --font-family-mono: var(--font-mono);
+
+  // Spacing extending Open Props sizing
+  --spacing-xs: var(--size-1); // 4px
+  --spacing-sm: var(--size-2); // 8px
+  --spacing-md: var(--size-3); // 16px
+  --spacing-lg: var(--size-4); // 20px
+  --spacing-xl: var(--size-5); // 24px
+  --spacing-2xl: var(--size-6); // 28px
+  --spacing-3xl: var(--size-7); // 32px
+
+  // Container spacing
+  --spacing-container-padding: var(--size-4);
+  --spacing-container-padding-lg: var(--size-6);
+
+  // Border radius using Open Props
+  --radius-sm: var(--radius-2);
+  --radius-md: var(--radius-3);
+  --radius-lg: var(--radius-4);
+  --radius-xl: var(--radius-5);
+  --radius-2xl: var(--radius-6);
+  --radius-full: var(--radius-round);
+
+  // Shadows extending Open Props
+  --shadow-sm: var(--shadow-2);
+  --shadow-md: var(--shadow-3);
+  --shadow-lg: var(--shadow-4);
+  --shadow-xl: var(--shadow-5);
+  --shadow-2xl: var(--shadow-6);
+
+  // Typography scale
+  --font-size-xs: var(--font-size-0);
+  --font-size-sm: var(--font-size-1);
+  --font-size-base: var(--font-size-2);
+  --font-size-lg: var(--font-size-3);
+  --font-size-xl: var(--font-size-4);
+  --font-size-2xl: var(--font-size-5);
+  --font-size-3xl: var(--font-size-6);
+  --font-size-4xl: var(--font-size-7);
+  --font-size-5xl: var(--font-size-8);
+
+  // Fluid typography
+  --font-size-fluid-sm: var(--font-size-fluid-0);
+  --font-size-fluid-base: var(--font-size-fluid-1);
+  --font-size-fluid-lg: var(--font-size-fluid-2);
+  --font-size-fluid-xl: var(--font-size-fluid-3);
+
+  // Font weights using Open Props
+  --font-weight-light: var(--font-weight-3);
+  --font-weight-regular: var(--font-weight-4);
+  --font-weight-medium: var(--font-weight-5);
+  --font-weight-semibold: var(--font-weight-6);
+  --font-weight-bold: var(--font-weight-7);
+
+  // Line heights using Open Props
+  --line-height-tight: var(--font-lineheight-1);
+  --line-height-normal: var(--font-lineheight-2);
+  --line-height-relaxed: var(--font-lineheight-3);
+  --line-height-loose: var(--font-lineheight-4);
+
+  // Transitions using Open Props easing
+  --transition-fast: 150ms var(--ease-2);
+  --transition-normal: 200ms var(--ease-2);
+  --transition-slow: 300ms var(--ease-2);
+  --transition-transform: transform var(--transition-normal);
+  --transition-color: color var(--transition-fast);
+  --transition-background: background-color var(--transition-fast);
+
+  // Z-index layers using Open Props
+  --z-dropdown: var(--layer-1);
+  --z-sticky: var(--layer-2);
+  --z-fixed: var(--layer-3);
+  --z-modal: var(--layer-4);
+  --z-tooltip: var(--layer-5);
+
+  // Container sizes
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+}
+
+// Dark theme overrides using Open Props dark colors
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-light: var(--gray-9);
+    --color-background-surface: var(--gray-8);
+    --color-background-elevated: var(--gray-7);
+
+    --color-text-primary: var(--gray-1);
+    --color-text-secondary: var(--gray-3);
+    --color-text-muted: var(--gray-5);
+
+    --color-ui-secondary: var(--gray-4);
+    --color-divider: var(--gray-6);
+
+    --color-hover-bg: var(--gray-8);
+    --color-active-bg: var(--gray-7);
+  }
+}

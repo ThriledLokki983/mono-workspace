@@ -1,0 +1,109 @@
+// // =============================================================================
+// // DESIGN TOKENS - TRANSITIONS & ANIMATIONS
+// // Graceful motion system extending Open Props foundation
+// // =============================================================================
+
+// :root {
+//   // Transition Durations - concrete values (Open Props will be available at runtime)
+//   --duration-fast: 150ms;
+//   --duration-normal: 200ms;
+//   --duration-slow: 300ms;
+//   --duration-slower: 500ms;
+
+//   // Transition Timing Functions - concrete values
+//   --ease-linear: linear;
+//   --ease-in: cubic-bezier(0.4, 0, 1, 1);
+//   --ease-out: cubic-bezier(0, 0, 0.2, 1);
+//   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+//   --ease-custom: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+//   // Common Transitions - commented out to avoid conflict with Open Props integration
+//   // These are defined in _open-props.scss instead
+//   // --transition-fast: all var(--duration-fast) var(--ease-out);
+//   // --transition-normal: all var(--duration-normal) var(--ease-out);
+//   // --transition-slow: all var(--duration-slow) var(--ease-out);
+
+//   // Property-specific transitions using our defined durations and timing functions
+//   --transition-color: color var(--duration-normal) var(--ease-out);
+//   --transition-background: background-color var(--duration-normal)
+//     var(--ease-out);
+//   --transition-border: border-color var(--duration-normal) var(--ease-out);
+//   --transition-shadow: box-shadow var(--duration-normal) var(--ease-out);
+//   --transition-transform: transform var(--duration-normal) var(--ease-out);
+//   --transition-opacity: opacity var(--duration-normal) var(--ease-out);
+// }
+
+// // Animation Keyframes
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes fadeInUp {
+//   from {
+//     opacity: 0;
+//     transform: translateY(20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes fadeInDown {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// @keyframes scaleIn {
+//   from {
+//     opacity: 0;
+//     transform: scale(0.95);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+// }
+
+// @keyframes slideInRight {
+//   from {
+//     opacity: 0;
+//     transform: translateX(20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+
+// // Animation Classes
+// .animate-fade-in {
+//   animation: fadeIn var(--duration-normal) var(--ease-out);
+// }
+
+// .animate-fade-in-up {
+//   animation: fadeInUp var(--duration-normal) var(--ease-out);
+// }
+
+// .animate-fade-in-down {
+//   animation: fadeInDown var(--duration-normal) var(--ease-out);
+// }
+
+// .animate-scale-in {
+//   animation: scaleIn var(--duration-normal) var(--ease-out);
+// }
+
+// .animate-slide-in-right {
+//   animation: slideInRight var(--duration-normal) var(--ease-out);
+// }

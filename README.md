@@ -27,24 +27,44 @@ mono-workspace/
 │       ├── src/                    # React components and pages
 │       ├── eslint.config.js        # App-specific ESLint config
 │       ├── prettier.config.js     # Prettier configuration
-│       ├── vite.config.ts         # Vite build configuration
+│       ├── vite.config.ts         # Vite build configuration with monorepo aliases
 │       ├── tsconfig.json          # TypeScript configuration with project references
 │       └── package.json           # App dependencies and scripts
 ├── packages/                       # Shared packages
 │   ├── types/                     # Shared TypeScript types and interfaces
 │   │   ├── src/
 │   │   │   ├── index.ts           # Common base types (ID, User, ApiResponse, etc.)
-│   │   │   ├── app.ts             # App-specific types (AppState, AppConfig)
-│   │   │   └── ui/                # UI component types (folder-based)
-│   │   │       ├── index.ts       # UI types barrel export
-│   │   │       └── button.ts      # Button component types
+│   │   │   ├── app/               # App-specific types
+│   │   │   │   ├── app.ts         # AppState, AppConfig, LoadingState
+│   │   │   │   └── index.ts       # App types barrel export
+│   │   │   ├── fe/                # Frontend types (folder-based organization)
+│   │   │   │   ├── index.ts       # Frontend types barrel export
+│   │   │   │   ├── base/          # Base frontend types
+│   │   │   │   │   ├── base.ts    # Environment, ThemeMode, etc.
+│   │   │   │   │   └── index.ts   # Base types export
+│   │   │   │   ├── ui/            # UI component types
+│   │   │   │   │   ├── index.ts   # UI types barrel export
+│   │   │   │   │   ├── button.ts  # Button component types
+│   │   │   │   │   └── link.ts    # Link component types
+│   │   │   │   └── api/           # API-related types
+│   │   │   │       ├── index.ts   # API types export
+│   │   │   │       ├── api-endpoints.ts
+│   │   │   │       └── api-response.ts
+│   │   │   └── be/                # Backend types (if needed)
 │   │   ├── tsconfig.json          # Types package TypeScript config
 │   │   └── package.json           # Types package configuration
-│   ├── ui/                        # Shared React UI components
-│   │   ├── index.tsx              # Component exports
+│   ├── components/                # Shared React UI components (published as @mono/ui)
+│   │   ├── index.tsx              # Main component exports entry point
+│   │   ├── src/                   # Component source files
+│   │   │   ├── ui/                # UI components
+│   │   │   │   ├── button/        # Button component
+│   │   │   │   │   └── index.tsx  # Button implementation
+│   │   │   │   └── link/          # Link component
+│   │   │   │       └── link.tsx   # Link implementation
+│   │   │   └── utils/             # Component utilities
 │   │   ├── eslint.config.js       # Package ESLint config
-│   │   ├── tsconfig.json          # UI package TypeScript config
-│   │   └── package.json           # Component library config
+│   │   ├── tsconfig.json          # Components package TypeScript config
+│   │   └── package.json           # Component library config (name: @mono/ui)
 │   └── config/                    # Configuration packages
 │       └── eslint-config-custom/  # Shared ESLint/Prettier config
 │           ├── index.js           # Base config for Node.js

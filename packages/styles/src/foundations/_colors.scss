@@ -1,0 +1,62 @@
+// =============================================================================
+// DESIGN TOKENS - COLORS
+// Extended luxury color palette building on Open Props foundation
+// =============================================================================
+
+:root {
+  // Extended color variations using Open Props as base
+  --color-brand-light: color-mix(
+    in srgb,
+    var(--color-brand-primary) 85%,
+    white
+  );
+  --color-brand-dark: color-mix(in srgb, var(--color-brand-primary) 90%, black);
+  --color-accent-light: color-mix(
+    in srgb,
+    var(--color-accent-primary) 80%,
+    white
+  );
+  --color-accent-dark: color-mix(
+    in srgb,
+    var(--color-accent-primary) 85%,
+    black
+  );
+
+  // Semantic colors
+  --color-success: var(--color-brand-primary);
+  --color-warning: var(--color-accent-primary);
+  --color-error: var(--color-alert-primary);
+  --color-info: var(--color-text-secondary);
+
+  // Extended text colors
+  --color-text-muted: color-mix(
+    in srgb,
+    var(--color-text-secondary) 70%,
+    white
+  );
+  --color-text-inverse: var(--stone-0);
+
+  // Extended background variations
+  --color-background-surface: var(--color-surface-warm);
+  --color-background-elevated: var(--stone-0);
+  --color-background-overlay: color-mix(
+    in srgb,
+    var(--color-text-primary) 60%,
+    transparent
+  );
+
+  // Interactive states
+  --color-focus: var(--color-brand-primary);
+  --color-hover-bg: color-mix(
+    in srgb,
+    var(--color-brand-primary) 8%,
+    transparent
+  );
+  --color-active-bg: color-mix(
+    in srgb,
+    var(--color-brand-primary) 12%,
+    transparent
+  );
+  --color-disabled-bg: var(--gray-1);
+  --color-disabled-text: var(--gray-6);
+}
