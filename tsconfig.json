@@ -2,6 +2,7 @@
   "files": [],
   "references": [
     { "path": "packages/types" },
+    { "path": "packages/fe-config" },
     { "path": "packages/components" },
     { "path": "packages/styles" },
     { "path": "apps/fe/test-app" }
