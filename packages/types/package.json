@@ -35,9 +35,9 @@
   "author": "Gideon Nimoh",
   "license": "MIT",
   "devDependencies": {
-    "@mono/eslint-config-custom": "workspace:*",
-    "eslint": "^9.25.0",
-    "prettier": "^3.4.2",
-    "typescript": "~5.8.3"
+    "@mono/eslint-config-custom": "workspace:^",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
   }
 }

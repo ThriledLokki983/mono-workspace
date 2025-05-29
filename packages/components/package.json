@@ -25,20 +25,20 @@
     "format:check": "prettier --check *.{js,jsx,ts,tsx,json,md}"
   },
   "dependencies": {
-    "@mono/styles": "workspace:*",
-    "@mono/types": "workspace:*",
-    "react-aria-components": "^1.4.0"
+    "@mono/styles": "workspace:^",
+    "@mono/types": "workspace:^",
+    "react-aria-components": "^1.9.0"
   },
   "devDependencies": {
-    "@mono/eslint-config-custom": "workspace:*",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "eslint": "^9.25.0",
-    "prettier": "^3.4.2",
+    "@mono/eslint-config-custom": "workspace:^",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sass": "^1.89.0",
-    "typescript": "~5.8.3"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
