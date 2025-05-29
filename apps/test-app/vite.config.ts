@@ -15,7 +15,17 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@mono/ui': path.resolve(__dirname, '../../packages/ui'),
+      '@mono/ui': path.resolve(
+        __dirname,
+        '../../packages/components/index.tsx'
+      ),
+      '@mono/types': path.resolve(__dirname, '../../packages/types/src'),
+    },
+  },
+  server: {
+    fs: {
+      // Allow serving files from one level up to the project root
+      allow: ['..'],
     },
   },
 });

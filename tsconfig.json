@@ -2,7 +2,7 @@
   "files": [],
   "references": [
     { "path": "packages/types" },
-    { "path": "packages/ui" },
+    { "path": "packages/components" },
     { "path": "apps/test-app" }
   ],
   "compilerOptions": {

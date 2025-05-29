@@ -1,10 +1,10 @@
 // App-specific types for applications
 
-import type { User, Environment, ThemeMode } from "../index.js";
+import type { Environment, ThemeMode } from "../fe/base/base.js";
 
 // Basic app state types
 export interface AppState {
-  user: User | null;
+  // user: User | null;
   theme: ThemeMode;
   loading: boolean;
   error: string | null;
@@ -29,12 +29,3 @@ export interface AsyncState<T> {
   status: LoadingState;
   error: string | null;
 }
-
-// Re-export common types that this module uses
-export type {
-  User,
-  ApiResponse,
-  ApiError,
-  Environment,
-  ThemeMode,
-} from "../index.js";

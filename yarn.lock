@@ -361,9 +361,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mono/ui@workspace:*, @mono/ui@workspace:packages/ui":
+"@mono/ui@workspace:*, @mono/ui@workspace:packages/components":
   version: 0.0.0-use.local
-  resolution: "@mono/ui@workspace:packages/ui"
+  resolution: "@mono/ui@workspace:packages/components"
   dependencies:
     "@mono/eslint-config-custom": "workspace:*"
     "@mono/types": "workspace:*"

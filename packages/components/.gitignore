@@ -21,3 +21,6 @@ coverage/
 
 # TypeScript cache (keep dist/ for monorepo development)
 *.tsbuildinfo
+
+# Build artifacts
+dist/

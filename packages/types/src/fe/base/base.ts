@@ -9,26 +9,6 @@ export interface BaseEntity {
   updatedAt: Date;
 }
 
-// User-related types (basic - only what might be used)
-export interface User extends BaseEntity {
-  name: string;
-  email: string;
-  avatar?: string;
-}
-
-// API Response types (basic)
-export interface ApiResponse<T> {
-  data: T;
-  message?: string;
-  success: boolean;
-}
-
-export interface ApiError {
-  error: string;
-  code: number;
-  details?: Record<string, unknown>;
-}
-
 // Utility types
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
@@ -39,6 +19,3 @@ export type Environment = "development" | "staging" | "production";
 
 // Theme types (basic)
 export type ThemeMode = "light" | "dark" | "system";
-
-// Export UI types
-export * from "./fe/ui/index.js";

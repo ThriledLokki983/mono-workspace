@@ -1,1 +1,7 @@
+# Node.js project .gitignore file
+
+# Node modules
 node_modules
+
+# Build artifacts
+dist/
