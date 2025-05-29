@@ -70,6 +70,19 @@ mono-workspace/
 │   │   │       └── index.ts        # Legacy types export
 │   │   ├── tsconfig.json           # Types package TypeScript config
 │   │   └── package.json            # Types package configuration
+│   ├── fe-config/                  # Frontend build configuration package
+│   │   ├── src/                    # Configuration source files
+│   │   │   ├── index.ts            # Main exports (query client, router utils)
+│   │   │   ├── vite.ts             # Vite configuration factory with monorepo aliases
+│   │   │   ├── query-client.ts     # React Query client setup
+│   │   │   └── router.tsx          # Router configuration utilities
+│   │   ├── dist/                   # Compiled configuration files
+│   │   │   ├── vite.js             # Compiled Vite config (used by apps)
+│   │   │   ├── query-client.js     # Compiled query client
+│   │   │   └── router.js           # Compiled router utilities
+│   │   ├── eslint.config.js        # Package ESLint config
+│   │   ├── tsconfig.json           # TypeScript config with composite: true
+│   │   └── package.json            # Frontend config package setup
 │   ├── components/                 # Shared React UI components (published as @mono/components)
 │   │   ├── index.tsx               # Main component exports entry point
 │   │   ├── REACT_ARIA_INTEGRATION.md  # React Aria implementation guide
@@ -174,7 +187,7 @@ yarn dev
 
 ## 🎯 TypeScript Project References
 
-This monorepo uses TypeScript Project References for optimal build performance and better development experience.
+This monorepo uses TypeScript Project References for optimal build performance and better development experience. **Recently enhanced** with proper dependency resolution and build order.
 
 ### Key Benefits
 
@@ -183,11 +196,40 @@ This monorepo uses TypeScript Project References for optimal build performance a
 - 🔧 **Developer Experience**: IntelliSense and auto-completion work across packages
 - 🧹 **Maintainability**: Centralized type definitions with minimal duplication
 - 📈 **Scalability**: Easy to add new types and packages as needed
+- 🔗 **Proper Dependencies**: Build order ensures packages are compiled before apps that use them
+
+### Project Reference Architecture
+
+**Root TypeScript Configuration (`tsconfig.json`):**
+
+```json
+{
+  "references": [
+    { "path": "packages/types" },
+    { "path": "packages/fe-config" }, // Build before apps
+    { "path": "packages/components" },
+    { "path": "packages/styles" },
+    { "path": "apps/fe/test-app" } // Built after dependencies
+  ]
+}
+```
+
+**App TypeScript Configuration (e.g., `test-app/tsconfig.json`):**
+
+```json
+{
+  "references": [
+    { "path": "../../../packages/types" },
+    { "path": "../../../packages/fe-config" }, // Critical for Vite config imports
+    { "path": "../../../packages/components" }
+  ]
+}
+```
 
 ### Build Commands
 
 ```bash
-# Build all TypeScript projects
+# Build all TypeScript projects in correct dependency order
 yarn build
 
 # Build with watch mode for development
@@ -196,6 +238,18 @@ yarn build:watch
 # Clean all build artifacts and rebuild
 yarn build:clean && yarn build
 ```
+
+### Dependency Resolution Fix
+
+**Problem Solved**: Previously, apps couldn't import from `@mono/fe-config` because TypeScript project references weren't properly configured.
+
+**Solution Applied**:
+
+1. ✅ Added `fe-config` to root TypeScript project references
+2. ✅ Added `fe-config` reference to app-level TypeScript configurations
+3. ✅ Ensured proper build order: `types` → `fe-config` → `components` → `apps`
+
+This ensures that when an app imports `@mono/fe-config/vite`, the compiled JavaScript is available.
 
 ## 📦 Workspace Packages
 
@@ -216,6 +270,15 @@ yarn build:clean && yarn build
 - **Purpose**: Centralized type definitions for the entire monorepo
 - **Structure**: Folder-based organization (`ui/button.ts`, `app.ts`, etc.)
 - **Usage**: `import type { ButtonProps } from '@mono/types/ui'`
+
+#### `@mono/fe-config`
+
+- **Type**: Frontend build configuration package
+- **Purpose**: Shared Vite configuration, React Query setup, and routing utilities
+- **Features**: Pre-configured Vite setup with monorepo aliases, React Query client, router utilities
+- **Dependencies**: Uses types from `@mono/types`, integrates with workspace architecture
+- **Exports**: Vite config factory, query client setup, router utilities
+- **Usage**: `import { createViteConfig } from '@mono/fe-config/vite'`
 
 #### `@mono/components`
 
@@ -243,6 +306,73 @@ yarn build:clean && yarn build
 - **Usage**: `import config from '@mono/eslint-config-custom'`
 
 ## 🛠️ Development Tools
+
+### Shared Dependencies Architecture
+
+This monorepo uses a **shared dependencies approach** where build tools and development dependencies are installed at the root level, with individual packages accessing them through clean, scalable scripts.
+
+#### **Key Benefits**
+
+- 🔧 **Centralized Tool Management**: All build tools (`vite`, `tsc`, `eslint`) installed once at root level
+- 📦 **Reduced Bundle Size**: No duplicate dependencies across packages
+- ⚡ **Faster Installs**: Shared dependencies mean faster `yarn install`
+- 🧹 **Easier Maintenance**: Update tools once at root, applies everywhere
+- 📈 **Scalable Pattern**: Easy to add new apps without configuration changes
+
+#### **How It Works**
+
+**Root Level Dependencies:**
+
+```json
+{
+  "devDependencies": {
+    "typescript-eslint": "^8.17.0",
+    "vite": "^6.3.5",
+    "typescript": "^5.7.3",
+    "@eslint/js": "^9.27.0"
+  }
+}
+```
+
+**Package Level Scripts (using `npx` for binary resolution):**
+
+```json
+{
+  "scripts": {
+    "start": "npx vite --port=3000",
+    "build": "npx tsc -b && npx vite build",
+    "lint": "npx eslint .",
+    "format": "npx prettier --write ."
+  }
+}
+```
+
+**Workspace Orchestration:**
+
+```bash
+# Root level commands that delegate to packages
+yarn workspace test-app build    # Finds and uses root-level vite
+yarn workspace @mono/fe-config build  # Uses root-level tsc
+yarn lint  # Runs across all packages with shared eslint
+```
+
+#### **Adding New Apps**
+
+Thanks to this architecture, adding new apps is incredibly simple:
+
+1. **Create app directory**: `mkdir apps/fe/new-app`
+2. **Add package.json with clean scripts**:
+   ```json
+   {
+     "scripts": {
+       "start": "npx vite --port=3001",
+       "build": "npx tsc -b && npx vite build",
+       "lint": "npx eslint ."
+     }
+   }
+   ```
+3. **No tool installation needed**: All build tools automatically available via `npx`
+4. **Run from root**: `yarn workspace new-app start`
 
 ### Unified ESLint + Prettier Configuration
 
@@ -438,11 +568,19 @@ yarn workspace @mono/eslint-config-custom format  # Format config files
 ```
 test-app (React App)
 ├── @mono/types (Shared Types)
+├── @mono/fe-config (Frontend Configuration)
 ├── @mono/components (UI Components)
 ├── @mono/styles (Design System)
 ├── @mono/eslint-config-custom (Linting)
 ├── React 19
-└── Vite
+└── Vite (from root)
+
+@mono/fe-config (Frontend Config)
+├── @mono/types (Shared Types)
+├── @mono/eslint-config-custom (Linting)
+├── React Query
+├── React Router
+└── Vite (peer dependency)
 
 @mono/components (UI Components)
 ├── @mono/types (Shared Types)
@@ -461,9 +599,9 @@ test-app (React App)
 └── TypeScript
 
 @mono/eslint-config-custom (Config)
-├── ESLint 9
-├── Prettier 3
-├── TypeScript ESLint
+├── ESLint 9 (from root)
+├── Prettier 3 (from root)
+├── TypeScript ESLint (from root)
 └── React-specific plugins
 ```
 
@@ -633,16 +771,47 @@ yarn add -D @mono/eslint-config-custom @mono/types eslint prettier typescript
 
 ## 🔍 Troubleshooting
 
+### Build Issues with Shared Dependencies
+
+#### "Cannot find module" errors in CI/CD
+
+**Problem**: CI environments may not have built packages in the correct order.
+
+**Solution**: Ensure TypeScript project references are properly configured and run root build first:
+
+```bash
+# In CI/CD pipeline - build all packages first
+yarn build
+
+# Then build specific apps
+yarn workspace test-app build
+```
+
+#### "command not found: vite" or similar tool errors
+
+**Problem**: Package scripts can't find shared binaries.
+
+**Solution**: Use `npx` prefix in package.json scripts:
+
+```json
+{
+  "scripts": {
+    "start": "npx vite --port=3000", // ✅ Uses root-level vite
+    "build": "npx tsc -b && npx vite build"
+  }
+}
+```
+
 ### TypeScript Issues
 
 ```bash
-# Build all projects with clean slate
+# Build all projects with clean slate (includes fe-config)
 yarn build:clean && yarn build
 
 # Check TypeScript configuration
 npx tsc --showConfig
 
-# Verify project references
+# Verify project references include fe-config
 npx tsc -b --listFiles
 ```
 
@@ -659,7 +828,7 @@ yarn workspace <package-name> run lint --print-config src/index.ts
 ### Yarn Workspace Issues
 
 ```bash
-# Reinstall all dependencies
+# Reinstall all dependencies (includes shared root dependencies)
 yarn install --force
 
 # Check workspace dependencies
