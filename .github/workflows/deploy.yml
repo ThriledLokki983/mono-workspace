@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/test-app/dist
+          path: apps/fe/test-app/dist
 
   deploy:
     runs-on: ubuntu-latest
