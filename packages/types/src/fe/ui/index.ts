@@ -2,3 +2,4 @@
 export * from "./base";
 export * from "./button";
 export * from "./link";
+export * from "./header";

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Button, Link } from '@mono/ui';
+import { Button, Link, Header } from '@mono/components';
 import { AccessibilityDemo } from './AccessibilityDemo';
+import { Home, Settings, BookOpen } from 'lucide-react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import styles from './App.module.scss';
@@ -16,8 +17,50 @@ function App() {
     setTimeout(() => setIsLoading(false), 1000);
   };
 
+  const handleProfileClick = () => {
+    alert('Profile clicked!');
+  };
+
+  const handleLogoClick = () => {
+    alert('Logo clicked!');
+  };
+
+  const navItems = [
+    {
+      label: 'Home',
+      href: '/',
+      active: true,
+      icon: Home,
+      external: false,
+    },
+    {
+      label: 'Settings',
+      href: '/settings',
+      active: false,
+      icon: Settings,
+      external: false,
+    },
+    {
+      label: 'Docs',
+      href: '/docs',
+      active: false,
+      icon: BookOpen,
+      external: false,
+    },
+  ];
+
   return (
     <div className={styles.app}>
+      <Header
+        logo='Frontend Platform'
+        navItems={navItems}
+        showProfile={true}
+        onProfileClick={handleProfileClick}
+        onLogoClick={handleLogoClick}
+        variant='default'
+        fixed={false}
+      />
+
       <div className={styles.hero}>
         <h1 className={styles.title}>Frontend Platform</h1>
         <p className={styles.subtitle}>

@@ -26,7 +26,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@mono/ui', 'open-props'],
+    include: ['@mono/components', 'open-props'],
   },
   build: {
     commonjsOptions: {
@@ -35,7 +35,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@mono/ui': path.resolve(
+      '@mono/components': path.resolve(
         __dirname,
         '../../../packages/components/index.tsx'
       ),

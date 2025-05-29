@@ -1,5 +1,5 @@
 {
-  "name": "@mono/ui",
+  "name": "@mono/components",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@mono/styles": "workspace:^",
     "@mono/types": "workspace:^",
+    "lucide-react": "^0.511.0",
     "react-aria-components": "^1.9.0"
   },
   "devDependencies": {

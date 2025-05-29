@@ -57,7 +57,7 @@ packages/types/src/fe/ui/
 ### Button Component
 
 ```tsx
-import { Button } from '@mono/ui';
+import { Button } from '@mono/components';
 
 <Button
   variant="primary" | "secondary" | "outline" | "ghost" | "danger"
@@ -77,7 +77,7 @@ import { Button } from '@mono/ui';
 ### Link Component
 
 ```tsx
-import { Link } from '@mono/ui';
+import { Link } from '@mono/components';
 
 <Link
   href="https://example.com"

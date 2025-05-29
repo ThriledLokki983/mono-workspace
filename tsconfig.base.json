@@ -67,8 +67,8 @@
     "paths": {
       "@mono/types": ["packages/types/dist"],
       "@mono/types/*": ["packages/types/dist/*"],
-      "@mono/ui": ["packages/components/dist"],
-      "@mono/ui/*": ["packages/components/dist/*"]
+      "@mono/components": ["packages/components/dist"],
+      "@mono/components/*": ["packages/components/dist/*"]
     }
   },
   "exclude": [

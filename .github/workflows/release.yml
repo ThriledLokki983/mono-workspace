@@ -66,7 +66,7 @@ jobs:
 
             ### 📦 Packages
             - `@mono/types` - Shared TypeScript types with React Aria integration
-            - `@mono/ui` - Reusable UI components with React Aria accessibility
+            - `@mono/components` - Reusable UI components with React Aria accessibility
             - `@mono/eslint-config-custom` - Shared ESLint configuration
 
             ### 🏗️ Applications

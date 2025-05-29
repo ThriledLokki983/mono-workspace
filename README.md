@@ -12,7 +12,7 @@ A modern TypeScript monorepo with unified development tooling, shared component 
 - 🎯 **Unified Linting**: Shared ESLint + Prettier configuration across all packages
 - ⚡ **Modern Stack**: React 19, TypeScript, Vite, ESLint 9
 - 🔧 **VS Code Integration**: Auto-format and auto-fix on save
-- 📦 **Shared Components**: Reusable UI components via `@mono/ui` with React Aria
+- 📦 **Shared Components**: Reusable UI components via `@mono/components` with React Aria
 - ♿ **Accessibility First**: Components built with React Aria for WCAG 2.1 AA compliance
 - 🚀 **Development Ready**: Hot reload, TypeScript checking, and instant feedback
 - 📐 **Consistent Styling**: Unified code formatting rules across the entire codebase
@@ -24,66 +24,128 @@ A modern TypeScript monorepo with unified development tooling, shared component 
 ```
 mono-workspace/
 ├── apps/                           # Applications
-│   └── test-app/                   # React app with Vite
-│       ├── src/                    # React components and pages
-│       ├── eslint.config.js        # App-specific ESLint config
-│       ├── prettier.config.js     # Prettier configuration
-│       ├── vite.config.ts         # Vite build configuration with monorepo aliases
-│       ├── tsconfig.json          # TypeScript configuration with project references
-│       └── package.json           # App dependencies and scripts
+│   ├── be/                         # Backend applications
+│   └── fe/                         # Frontend applications
+│       ├── faithcircle/            # Faith Circle application
+│       └── test-app/               # React test app with Vite
+│           ├── src/                # React components and pages
+│           │   ├── AccessibilityDemo.tsx  # React Aria accessibility demo
+│           │   ├── App.tsx         # Main application component
+│           │   ├── App.module.scss # Application styling
+│           │   ├── main.tsx        # Application entry point
+│           │   ├── TestComponent.tsx  # Component examples
+│           │   └── assets/         # Static assets
+│           ├── public/             # Public assets
+│           ├── eslint.config.js    # App-specific ESLint config
+│           ├── prettier.config.js  # Prettier configuration
+│           ├── vite.config.ts      # Vite build configuration with monorepo aliases
+│           ├── tsconfig.json       # TypeScript configuration with project references
+│           └── package.json        # App dependencies and scripts
 ├── packages/                       # Shared packages
-│   ├── types/                     # Shared TypeScript types and interfaces
+│   ├── types/                      # Shared TypeScript types and interfaces
 │   │   ├── src/
-│   │   │   ├── index.ts           # Common base types (ID, User, ApiResponse, etc.)
-│   │   │   ├── app/               # App-specific types
-│   │   │   │   ├── app.ts         # AppState, AppConfig, LoadingState
-│   │   │   │   └── index.ts       # App types barrel export
-│   │   │   ├── fe/                # Frontend types (folder-based organization)
-│   │   │   │   ├── index.ts       # Frontend types barrel export
-│   │   │   │   ├── base/          # Base frontend types
-│   │   │   │   │   ├── base.ts    # Environment, ThemeMode, etc.
-│   │   │   │   │   └── index.ts   # Base types export
-│   │   │   │   ├── ui/            # UI component types
-│   │   │   │   │   ├── index.ts   # UI types barrel export
-│   │   │   │   │   ├── button.ts  # Button component types
-│   │   │   │   │   └── link.ts    # Link component types
-│   │   │   │   └── api/           # API-related types
-│   │   │   │       ├── index.ts   # API types export
+│   │   │   ├── index.ts            # Common base types (ID, User, ApiResponse, etc.)
+│   │   │   ├── app.ts              # Application-level types
+│   │   │   ├── ui.ts               # Legacy UI types
+│   │   │   ├── app/                # App-specific types
+│   │   │   │   ├── app.ts          # AppState, AppConfig, LoadingState
+│   │   │   │   └── index.ts        # App types barrel export
+│   │   │   ├── fe/                 # Frontend types (folder-based organization)
+│   │   │   │   ├── index.ts        # Frontend types barrel export
+│   │   │   │   ├── base/           # Base frontend types
+│   │   │   │   │   ├── base.ts     # Environment, ThemeMode, etc.
+│   │   │   │   │   └── index.ts    # Base types export
+│   │   │   │   ├── ui/             # UI component types
+│   │   │   │   │   ├── index.ts    # UI types barrel export
+│   │   │   │   │   ├── button.ts   # Button component types
+│   │   │   │   │   ├── link.ts     # Link component types
+│   │   │   │   │   └── header.ts   # Header component types
+│   │   │   │   └── api/            # API-related types
+│   │   │   │       ├── index.ts    # API types export
 │   │   │   │       ├── api-endpoints.ts
 │   │   │   │       └── api-response.ts
-│   │   │   └── be/                # Backend types (if needed)
-│   │   ├── tsconfig.json          # Types package TypeScript config
-│   │   └── package.json           # Types package configuration
-│   ├── components/                # Shared React UI components (published as @mono/ui)
-│   │   ├── index.tsx              # Main component exports entry point
+│   │   │   ├── be/                 # Backend types (if needed)
+│   │   │   └── ui/                 # Legacy UI types location
+│   │   │       ├── button.ts       # Legacy button types
+│   │   │       └── index.ts        # Legacy types export
+│   │   ├── tsconfig.json           # Types package TypeScript config
+│   │   └── package.json            # Types package configuration
+│   ├── components/                 # Shared React UI components (published as @mono/components)
+│   │   ├── index.tsx               # Main component exports entry point
 │   │   ├── REACT_ARIA_INTEGRATION.md  # React Aria implementation guide
-│   │   ├── src/                   # Component source files
-│   │   │   ├── ui/                # UI components
-│   │   │   │   ├── index.ts       # Component exports barrel
-│   │   │   │   ├── button/        # Button component with React Aria
-│   │   │   │   │   ├── Button.tsx # Button implementation
-│   │   │   │   │   └── Button.module.scss  # Button styling with design tokens
-│   │   │   │   └── link/          # Link component with React Aria
-│   │   │   │       ├── Link.tsx   # Link implementation
-│   │   │   │       └── Link.module.scss    # Link styling with variants
-│   │   │   ├── global.d.ts        # CSS module type declarations
-│   │   │   └── utils/             # Component utilities
-│   │   ├── eslint.config.js       # Package ESLint config
-│   │   ├── tsconfig.json          # Components package TypeScript config
-│   │   └── package.json           # Component library config with React Aria deps
-│   └── config/                    # Configuration packages
-│       └── eslint-config-custom/  # Shared ESLint/Prettier config
-│           ├── index.js           # Base config for Node.js
-│           ├── react.js           # React-specific config
-│           ├── prettier.config.js # Prettier rules
-│           └── package.json       # Config package setup
-├── .vscode/                       # VS Code workspace settings
-│   ├── settings.json              # Auto-format and lint on save
-│   └── extensions.json            # Recommended extensions
-├── tsconfig.json                  # Root TypeScript config with project references
-├── tsconfig.base.json             # Base TypeScript configuration
-├── package.json                   # Workspace configuration
-└── README.md                      # This file
+│   │   ├── src/                    # Component source files
+│   │   │   ├── ui/                 # UI components
+│   │   │   │   ├── index.ts        # Component exports barrel
+│   │   │   │   ├── button/         # Button component with React Aria
+│   │   │   │   │   ├── Button.tsx  # Button implementation
+│   │   │   │   │   ├── Button.module.scss      # Button styling with design tokens
+│   │   │   │   │   ├── ButtonFixed.module.scss # Alternative button styles
+│   │   │   │   │   └── index.tsx   # Button barrel export
+│   │   │   │   ├── link/           # Link component with React Aria
+│   │   │   │   │   ├── Link.tsx    # Link implementation
+│   │   │   │   │   └── Link.module.scss        # Link styling with variants
+│   │   │   │   └── header/         # Header component with navigation
+│   │   │   │       ├── Header.tsx  # Header implementation
+│   │   │   │       ├── Header.module.scss      # Header styling
+│   │   │   │       └── index.ts    # Header barrel export
+│   │   │   ├── global.d.ts         # CSS module type declarations
+│   │   │   └── utils/              # Component utilities
+│   │   ├── eslint.config.js        # Package ESLint config
+│   │   ├── tsconfig.json           # Components package TypeScript config
+│   │   └── package.json            # Component library config with React Aria deps
+│   ├── styles/                     # Premium SCSS design system (published as @mono/styles)
+│   │   ├── src/                    # SCSS source files
+│   │   │   ├── base-styles.scss    # Main entry point for complete design system
+│   │   │   ├── foundations/        # Design tokens and variables
+│   │   │   │   ├── _index.scss     # Foundations barrel export
+│   │   │   │   ├── _open-props.scss # Open Props integration
+│   │   │   │   ├── _colors.scss    # Premium earthy-cosmic color palette
+│   │   │   │   ├── _typography.scss # Font scales and hierarchy
+│   │   │   │   ├── _spacing.scss   # Spacing scale and utilities
+│   │   │   │   ├── _breakpoints.scss # Responsive breakpoint system
+│   │   │   │   ├── _elevation.scss  # Shadow and depth system
+│   │   │   │   └── _transitions.scss # Animation and transition tokens
+│   │   │   ├── components/         # Component-specific styles
+│   │   │   │   ├── _index.scss     # Components barrel export
+│   │   │   │   ├── _buttons.scss   # Button component styles
+│   │   │   │   ├── _cards.scss     # Card component styles
+│   │   │   │   ├── _forms.scss     # Form component styles
+│   │   │   │   ├── _modals.scss    # Modal component styles
+│   │   │   │   └── _navigation.scss # Navigation component styles
+│   │   │   ├── layouts/            # Layout and grid systems
+│   │   │   │   ├── _index.scss     # Layouts barrel export
+│   │   │   │   ├── _containers.scss # Container layouts
+│   │   │   │   ├── _grid.scss      # CSS Grid system
+│   │   │   │   └── _positioning.scss # Positioning utilities
+│   │   │   └── utilities/          # Utility classes
+│   │   │       ├── _index.scss     # Utilities barrel export
+│   │   │       ├── _colors.scss    # Color utilities
+│   │   │       ├── _spacing.scss   # Spacing utilities
+│   │   │       ├── _typography.scss # Typography utilities
+│   │   │       ├── _display.scss   # Display utilities
+│   │   │       ├── _backgrounds.scss # Background utilities
+│   │   │       └── _responsive.scss  # Responsive utilities
+│   │   ├── README.md               # Styles documentation and usage guide
+│   │   ├── eslint.config.js        # Package ESLint config
+│   │   ├── tsconfig.json           # TypeScript config for styles
+│   │   └── package.json            # Styles package configuration
+│   └── config/                     # Configuration packages
+│       └── eslint-config-custom/   # Shared ESLint/Prettier config
+│           ├── index.js            # Base config for Node.js
+│           ├── react.js            # React-specific config
+│           ├── prettier.config.js  # Prettier rules
+│           ├── README.md           # Configuration documentation
+│           ├── tsconfig.json       # TypeScript config for config package
+│           └── package.json        # Config package setup
+├── .vscode/                        # VS Code workspace settings
+│   ├── settings.json               # Auto-format and lint on save
+│   └── extensions.json             # Recommended extensions
+├── QUICK_START.md                  # Quick start guide for developers
+├── TYPESCRIPT_SETUP.md             # TypeScript configuration documentation
+├── tsconfig.json                   # Root TypeScript config with project references
+├── tsconfig.base.json              # Base TypeScript configuration
+├── package.json                    # Workspace configuration
+└── README.md                       # This file
 ```
 
 ## 🚀 Getting Started
@@ -155,14 +217,23 @@ yarn build:clean && yarn build
 - **Structure**: Folder-based organization (`ui/button.ts`, `app.ts`, etc.)
 - **Usage**: `import type { ButtonProps } from '@mono/types/ui'`
 
-#### `@mono/ui`
+#### `@mono/components`
 
 - **Type**: React component library with React Aria integration
 - **Purpose**: Accessible, reusable UI components across applications
 - **Features**: WCAG 2.1 AA compliance, keyboard navigation, screen reader support
 - **Dependencies**: Uses types from `@mono/types`, built with React Aria Components
-- **Exports**: Button, Link components with full accessibility features
-- **Usage**: `import { Button } from '@mono/ui'`
+- **Exports**: Button, Link, Header components with full accessibility features
+- **Usage**: `import { Button } from '@mono/components'`
+
+#### `@mono/styles`
+
+- **Type**: Premium SCSS design system package
+- **Purpose**: Centralized styling foundation with design tokens and component styles
+- **Features**: Earthy-cosmic color palette, responsive utilities, Open Props integration
+- **Structure**: Organized SCSS with foundations, components, layouts, and utilities
+- **Exports**: Complete design system via `base-styles.scss` entry point
+- **Usage**: `@import '@mono/styles/src/base-styles.scss';`
 
 #### `@mono/eslint-config-custom`
 
@@ -341,8 +412,12 @@ yarn workspace test-app format        # Format code with Prettier
 yarn workspace test-app format:check  # Check code formatting
 
 # UI Package
-yarn workspace @mono/ui lint          # Lint UI components
-yarn workspace @mono/ui format        # Format UI components
+yarn workspace @mono/components lint          # Lint UI components
+yarn workspace @mono/components format        # Format UI components
+
+# Styles Package
+yarn workspace @mono/styles lint              # Lint SCSS and config files
+yarn workspace @mono/styles format            # Format SCSS and config files
 
 # Configuration Package
 yarn workspace @mono/eslint-config-custom lint    # Lint config files
@@ -363,16 +438,23 @@ yarn workspace @mono/eslint-config-custom format  # Format config files
 ```
 test-app (React App)
 ├── @mono/types (Shared Types)
-├── @mono/ui (UI Components)
+├── @mono/components (UI Components)
+├── @mono/styles (Design System)
 ├── @mono/eslint-config-custom (Linting)
 ├── React 19
 └── Vite
 
-@mono/ui (UI Components)
+@mono/components (UI Components)
 ├── @mono/types (Shared Types)
+├── @mono/styles (Design System)
 ├── @mono/eslint-config-custom (Linting)
 ├── React
 └── TypeScript
+
+@mono/styles (Design System)
+├── @mono/eslint-config-custom (Linting)
+├── Open Props
+└── SCSS
 
 @mono/types (Shared Types)
 ├── @mono/eslint-config-custom (Linting)
@@ -417,7 +499,7 @@ The component library is built with [React Aria Components](https://react-spectr
 #### Button Component
 
 ```tsx
-import { Button } from '@mono/ui';
+import { Button } from '@mono/components';
 
 <Button
   variant="primary" | "secondary" | "outline" | "ghost" | "danger"
@@ -436,7 +518,7 @@ import { Button } from '@mono/ui';
 #### Link Component
 
 ```tsx
-import { Link } from '@mono/ui';
+import { Link } from '@mono/components';
 
 <Link
   href="https://example.com"
@@ -452,10 +534,22 @@ import { Link } from '@mono/ui';
 
 ### Design System Integration
 
-Components use the existing Open Props design system with luxury styling:
+Components use the `@mono/styles` design system with luxury styling and Open Props integration:
 
 ```scss
-// Colors
+// Import the complete design system
+@import "@mono/styles/src/base-styles.scss";
+
+// Or import specific parts
+@import "@mono/styles/src/foundations/colors";
+@import "@mono/styles/src/components/buttons";
+@import "@mono/styles/src/utilities/spacing";
+```
+
+**Available Design Tokens:**
+
+```scss
+// Colors (Earthy-Cosmic Palette)
 --color-brand-primary, --color-brand-light, --color-brand-dark
 --color-accent-primary, --color-text-primary, --color-error
 --color-focus  // For focus indicators
@@ -494,7 +588,7 @@ yarn init
 
 # Add shared dependencies
 yarn add -D @mono/eslint-config-custom @mono/types eslint prettier typescript
-yarn add @mono/ui
+yarn add @mono/components
 
 # Create TypeScript configuration with project references
 # (Follow examples from test-app)
@@ -519,7 +613,7 @@ yarn add -D @mono/eslint-config-custom @mono/types eslint prettier typescript
 1. **Development**: Use VS Code with auto-format on save
 2. **Type Safety**: Import shared types from `@mono/types`
 3. **Code Quality**: ESLint catches issues, Prettier formats code
-4. **Cross-package**: Import UI components from `@mono/ui`
+4. **Cross-package**: Import UI components from `@mono/components`
 5. **Building**: TypeScript project references enable incremental builds
 6. **Consistency**: Shared rules ensure uniform code style
 
@@ -528,7 +622,7 @@ yarn add -D @mono/eslint-config-custom @mono/types eslint prettier typescript
 1. Follow the established ESLint and Prettier configurations
 2. Use TypeScript for all new code
 3. Import shared types from `@mono/types` instead of duplicating
-4. Add shared components to `@mono/ui` with React Aria integration
+4. Add shared components to `@mono/components` with React Aria integration
 5. Ensure components meet WCAG 2.1 AA accessibility standards
 6. Use existing design tokens from the Open Props system
 7. Update type definitions when adding new interfaces
@@ -598,7 +692,7 @@ The ESLint configuration enforces strict architectural rules to maintain a clean
 import { SomeComponent } from "../../faithcirce/components/SomeComponent";
 
 // ✅ Use shared packages instead
-import { SomeComponent } from "@mono/ui";
+import { SomeComponent } from "@mono/components";
 ```
 
 #### **Packages Cannot Import from Apps**

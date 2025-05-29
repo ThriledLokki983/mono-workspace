@@ -415,6 +415,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mono/components@workspace:^, @mono/components@workspace:packages/components":
+  version: 0.0.0-use.local
+  resolution: "@mono/components@workspace:packages/components"
+  dependencies:
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
+    "@mono/types": "workspace:^"
+    "@types/react": "npm:^19.1.6"
+    "@types/react-dom": "npm:^19.1.5"
+    eslint: "npm:^9.27.0"
+    lucide-react: "npm:^0.511.0"
+    prettier: "npm:^3.5.3"
+    react: "npm:^19.1.0"
+    react-aria-components: "npm:^1.9.0"
+    react-dom: "npm:^19.1.0"
+    sass: "npm:^1.89.0"
+    typescript: "npm:^5.8.3"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@mono/eslint-config-custom@workspace:^, @mono/eslint-config-custom@workspace:packages/config/eslint-config-custom":
   version: 0.0.0-use.local
   resolution: "@mono/eslint-config-custom@workspace:packages/config/eslint-config-custom"
@@ -462,28 +485,6 @@ __metadata:
     eslint: "npm:^9.27.0"
     prettier: "npm:^3.5.3"
     typescript: "npm:^5.8.3"
-  languageName: unknown
-  linkType: soft
-
-"@mono/ui@workspace:^, @mono/ui@workspace:packages/components":
-  version: 0.0.0-use.local
-  resolution: "@mono/ui@workspace:packages/components"
-  dependencies:
-    "@mono/eslint-config-custom": "workspace:^"
-    "@mono/styles": "workspace:^"
-    "@mono/types": "workspace:^"
-    "@types/react": "npm:^19.1.6"
-    "@types/react-dom": "npm:^19.1.5"
-    eslint: "npm:^9.27.0"
-    prettier: "npm:^3.5.3"
-    react: "npm:^19.1.0"
-    react-aria-components: "npm:^1.9.0"
-    react-dom: "npm:^19.1.0"
-    sass: "npm:^1.89.0"
-    typescript: "npm:^5.8.3"
-  peerDependencies:
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4853,6 +4854,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^0.511.0":
+  version: 0.511.0
+  resolution: "lucide-react@npm:0.511.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/bf09dd73cf2233abea90506ad31a91739555d761062722acbe045cb73e274f035b196472de0971a8a8f0645b2b54e3f21b8c1980fe87c909ca93171a9c28428a
+  languageName: node
+  linkType: hard
+
 "make-fetch-happen@npm:^14.0.3":
   version: 14.0.3
   resolution: "make-fetch-happen@npm:14.0.3"
@@ -6154,14 +6164,15 @@ __metadata:
   resolution: "test-app@workspace:apps/fe/test-app"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
+    "@mono/components": "workspace:^"
     "@mono/eslint-config-custom": "workspace:^"
     "@mono/styles": "workspace:^"
-    "@mono/ui": "workspace:^"
     "@types/node": "npm:^22.15.24"
     "@types/react": "npm:^19.1.6"
     "@types/react-dom": "npm:^19.1.5"
     "@vitejs/plugin-react-swc": "npm:^3.10.0"
     eslint: "npm:^9.27.0"
+    lucide-react: "npm:^0.511.0"
     prettier: "npm:^3.5.3"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"

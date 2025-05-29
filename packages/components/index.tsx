@@ -1,5 +1,5 @@
-// Main entry point for @mono/ui components
-export { Button, Link } from './src/ui';
+// Main entry point for @mono/components
+export { Button, Link, Header } from './src/ui';
 
 // Re-export types for convenience
 export type {
@@ -9,4 +9,7 @@ export type {
   LinkProps,
   LinkVariant,
   LinkSize,
+  HeaderProps,
+  HeaderVariant,
+  NavItem,
 } from './src/ui';

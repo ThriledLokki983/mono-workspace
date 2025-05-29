@@ -10,7 +10,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@mono/ui": ["packages/ui"]
+      "@mono/components": ["packages/components"]
     },
 
     /* Bundler mode */
