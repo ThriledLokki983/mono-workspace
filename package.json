@@ -5,5 +5,30 @@
   "main": "index.js",
   "author": "Gideon Nimoh",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "repository": "git@github.com:ThriledLokki983/mono-workspace.git",
+  "workspaces": [
+    "packages/*",
+    "packages/config/*",
+    "apps/*"
+  ],
+  "packageManager": "yarn@4.9.1",
+  "scripts": {
+    "build": "npx tsc -b",
+    "build:clean": "npx tsc -b --clean",
+    "build:watch": "npx tsc -b --watch",
+    "dev": "yarn workspace test-app dev",
+    "lint": "yarn workspaces foreach --all --parallel run lint",
+    "lint:fix": "yarn workspaces foreach --all --parallel run lint:fix",
+    "format": "yarn workspaces foreach --all --parallel run format",
+    "format:check": "yarn workspaces foreach --all --parallel run format:check",
+    "test": "yarn workspaces foreach --all run test",
+    "test:watch": "yarn workspaces foreach --all run test:watch",
+    "typecheck": "npx tsc -b --noEmit",
+    "clean": "yarn workspaces foreach --all run clean && yarn build:clean",
+    "reset": "yarn clean && rm -rf node_modules && yarn install",
+    "ci": "yarn lint && yarn format:check && yarn build && yarn typecheck",
+    "precommit": "yarn lint:fix && yarn format",
+    "prepare": "yarn build"
+  }
 }

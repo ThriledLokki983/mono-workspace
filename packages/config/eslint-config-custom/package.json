@@ -1,0 +1,38 @@
+{
+  "name": "@mono/eslint-config-custom",
+  "version": "1.0.0",
+  "description": "Shared ESLint and Prettier configuration for mono-workspace",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./react": "./react.js",
+    "./prettier.config.js": "./prettier.config.js"
+  },
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "react.js",
+    "prettier.config.js"
+  ],
+  "dependencies": {
+    "@eslint/js": "^9.25.0",
+    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/parser": "^8.30.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.30.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "typescript": ">=4.0.0"
+  }
+}

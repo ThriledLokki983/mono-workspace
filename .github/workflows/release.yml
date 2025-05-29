@@ -1,0 +1,96 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g., v1.0.0)"
+        required: true
+        type: string
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Build applications
+        run: |
+          # Build all apps that have build scripts
+          for app in apps/*/; do
+            if [ -f "${app}package.json" ]; then
+              app_name=$(basename "$app")
+              if yarn workspace "$app_name" run build --dry-run 2>/dev/null; then
+                echo "Building $app_name..."
+                yarn workspace "$app_name" build
+              fi
+            fi
+          done
+
+      - name: Get version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.FINEGRAIN_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: Release ${{ steps.version.outputs.version }}
+          body: |
+            ## 🚀 Release ${{ steps.version.outputs.version }}
+
+            ### 📦 Packages
+            - `@mono/types` - Shared TypeScript types
+            - `@mono/ui` - Reusable UI components
+            - `@mono/eslint-config-custom` - Shared ESLint configuration
+
+            ### 🏗️ Applications
+            - `test-app` - React test application
+
+            ### 🔧 Changes
+            See the full changelog in the commit history.
+          draft: false
+          prerelease: false
+
+      - name: Upload App Builds
+        uses: actions/upload-release-asset@v1
+        if: hashFiles('apps/*/dist/**/*') != '' || hashFiles('apps/*/build/**/*') != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.FINEGRAIN_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./
+          asset_name: monorepo-apps-${{ steps.version.outputs.version }}.zip
+          asset_content_type: application/zip

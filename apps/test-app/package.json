@@ -1,0 +1,35 @@
+{
+  "name": "test-app",
+  "description": "A React application for testing purposes in a monorepo setup",
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mono/ui": "workspace:*",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@mono/eslint-config-custom": "workspace:*",
+    "@types/node": "^22.15.24",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "eslint": "^9.25.0",
+    "prettier": "^3.4.2",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}

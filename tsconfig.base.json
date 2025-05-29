@@ -1,0 +1,84 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "removeComments": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "importsNotUsedAsValues": "remove",
+    "downlevelIteration": false,
+    "preserveConstEnums": true,
+
+    /* JavaScript Support */
+    "allowJs": false,
+    "checkJs": false,
+
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+
+    /* Modules */
+    "allowUmdGlobalAccess": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "allowArbitraryExtensions": false,
+
+    /* Emit Constraints */
+    "verbatimModuleSyntax": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": false,
+
+    /* Advanced */
+    "resolveJsonModule": true,
+    "preserveSymlinks": false,
+    "composite": false,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+
+    /* Path Mapping */
+    "baseUrl": ".",
+    "paths": {
+      "@mono/types": ["packages/types/src"],
+      "@mono/types/*": ["packages/types/src/*"],
+      "@mono/ui": ["packages/ui"],
+      "@mono/ui/*": ["packages/ui/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
+}

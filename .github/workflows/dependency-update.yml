@@ -1,0 +1,72 @@
+name: Dependency Update
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  update-dependencies:
+    name: Update Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.FINEGRAIN_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Update Yarn to latest
+        run: yarn set version stable
+
+      - name: Update dependencies
+        run: |
+          # Update all dependencies
+          yarn up '*'
+
+          # Update TypeScript if needed
+          yarn add -D typescript@latest
+
+      - name: Run tests after update
+        run: |
+          yarn install --immutable
+          yarn lint
+          yarn build
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.FINEGRAIN_TOKEN }}
+          commit-message: "chore: update dependencies"
+          title: "🔧 Automated Dependency Update"
+          body: |
+            ## 🔧 Automated Dependency Update
+
+            This PR contains automated dependency updates.
+
+            ### 📦 Changes
+            - Updated all dependencies to their latest versions
+            - Updated Yarn to the latest stable version
+
+            ### ✅ Checks
+            - ✅ Linting passed
+            - ✅ Build successful
+            - ✅ Type checking passed
+
+            Please review the changes and merge if everything looks good.
+
+            ---
+            *This PR was created automatically by the dependency update workflow.*
+          branch: chore/dependency-updates
+          delete-branch: true

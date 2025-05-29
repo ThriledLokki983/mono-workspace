@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/types" },
+    { "path": "packages/ui" },
+    { "path": "apps/test-app" }
+  ],
+  "compilerOptions": {
+    "incremental": true,
+    "skipLibCheck": true
+  }
+}
