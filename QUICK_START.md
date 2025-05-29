@@ -1,7 +1,9 @@
 # 🚀 Quick Start Guide
 
 ## ✅ Current Status
+
 Your monorepo is **fully configured** with:
+
 - ✅ ESLint dependency constraints preventing cross-app imports
 - ✅ GitHub Actions workflows with `FINEGRAIN_TOKEN` configuration
 - ✅ Clean workspace structure (removed empty app folders)
