@@ -17,7 +17,7 @@
     "build": "npx tsc -b",
     "build:clean": "npx tsc -b --clean",
     "build:watch": "npx tsc -b --watch",
-    "dev": "yarn workspace test-app dev",
+    "start": "yarn workspace test-app start",
     "lint": "yarn workspaces foreach --all --parallel run lint",
     "lint:fix": "yarn workspaces foreach --all --parallel run lint:fix",
     "format": "yarn workspaces foreach --all --parallel run format",
