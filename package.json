@@ -1,0 +1,9 @@
+{
+  "name": "mono-workspace",
+  "version": "1.0.0",
+  "description": "this is a monorepo for all my work going forward from now",
+  "main": "index.js",
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "private": true
+}
