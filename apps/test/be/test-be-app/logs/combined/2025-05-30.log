@@ -1,0 +1,50 @@
+{"correlationId":"ye7e0jckbh9","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:21:34.390Z"}
+{"correlationId":"0ls2bgyyxvua","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:21:34.392Z"}
+{"correlationId":"4y3oi3hrt2k","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:21:34.394Z"}
+{"correlationId":"22p1m82npxt","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:21:34.394Z"}
+{"correlationId":"qc54fa6exqd","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:22:17.496Z"}
+{"correlationId":"yzbolzy2zy","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:22:17.499Z"}
+{"correlationId":"wl3sou1soah","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:22:17.500Z"}
+{"correlationId":"867fa1cpa2y","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:22:17.501Z"}
+{"correlationId":"a44y5i5aq9p","level":"info","message":"::1 - - [30/May/2025:16:23:09 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:23:09.390Z"}
+{"correlationId":"d96n4ro5z8f","level":"info","message":"::1 - - [30/May/2025:16:23:25 +0000] \"GET /api/users/1 HTTP/1.1\" 200 173 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:23:25.011Z"}
+{"correlationId":"651ur885gor","level":"info","message":"::1 - - [30/May/2025:16:23:41 +0000] \"POST /api/users HTTP/1.1\" 500 1534 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:23:41.134Z"}
+{"correlationId":"fgsqi2zimx6","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:24:57.946Z"}
+{"correlationId":"4p6xm1r935j","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:24:57.949Z"}
+{"correlationId":"5jhavck3a7h","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:24:57.951Z"}
+{"correlationId":"y1bv385yjbm","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:24:57.951Z"}
+{"correlationId":"cbbgu6d3ah","level":"info","message":"::1 - - [30/May/2025:16:25:13 +0000] \"POST /api/users HTTP/1.1\" 500 1534 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:25:13.317Z"}
+{"correlationId":"4q5hsfxwb0i","level":"info","message":"::1 - - [30/May/2025:16:25:30 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:25:30.835Z"}
+{"correlationId":"rc2cwgye3","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:26:24.026Z"}
+{"correlationId":"k2yrnj0i9z","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:26:24.029Z"}
+{"correlationId":"iai1ieqr24","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:26:24.031Z"}
+{"correlationId":"ypuqxxtqx1e","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:26:24.032Z"}
+{"correlationId":"nzq9b7spwp","level":"info","message":"::1 - - [30/May/2025:16:26:44 +0000] \"POST /api/users HTTP/1.1\" 201 177 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:26:44.390Z"}
+{"correlationId":"wfus16e8xaa","level":"info","message":"::1 - - [30/May/2025:16:26:53 +0000] \"GET /api/users HTTP/1.1\" 200 370 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:26:53.777Z"}
+{"correlationId":"uwzm7g1xqer","level":"info","message":"::1 - - [30/May/2025:16:27:07 +0000] \"GET /api/users/3 HTTP/1.1\" 200 179 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:27:07.150Z"}
+{"correlationId":"9t2kl78dn2","level":"info","message":"::1 - - [30/May/2025:16:27:18 +0000] \"GET /api/users/999 HTTP/1.1\" 404 73 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:27:18.076Z"}
+{"correlationId":"s0ber6tof29","level":"info","message":"::1 - - [30/May/2025:16:27:28 +0000] \"POST /api/users HTTP/1.1\" 400 86 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:27:28.109Z"}
+{"correlationId":"utjj4bexler","level":"info","message":"::1 - - [30/May/2025:16:27:35 +0000] \"GET /nonexistent HTTP/1.1\" 404 150 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:27:35.809Z"}
+{"correlationId":"qwtmvtohw3o","level":"info","message":"::1 - - [30/May/2025:16:27:48 +0000] \"GET /health HTTP/1.1\" 404 145 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:27:48.706Z"}
+{"correlationId":"31tnl1nefvi","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:40:18.162Z"}
+{"correlationId":"v3ie9e6ocm","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:40:18.165Z"}
+{"correlationId":"xfrmlyulbeg","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:40:18.168Z"}
+{"correlationId":"mb37u1rs4kk","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:40:18.168Z"}
+{"correlationId":"eywkrfvtor","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:41:14.742Z"}
+{"correlationId":"ldjlhguih08","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:41:14.745Z"}
+{"correlationId":"68pon60wcz6","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:41:14.747Z"}
+{"correlationId":"uand3ykk5ls","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:41:14.748Z"}
+{"correlationId":"2zwklv4d17y","level":"info","message":"::1 - - [30/May/2025:16:42:14 +0000] \"GET /users HTTP/1.1\" 404 144 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T16:42:14.405Z"}
+{"correlationId":"ugmmu6qm00e","level":"info","message":"::1 - - [30/May/2025:16:42:55 +0000] \"GET /users HTTP/1.1\" 404 144 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T16:42:55.422Z"}
+{"correlationId":"d81f6r79n9","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T16:43:02.828Z"}
+{"correlationId":"at0kllwy2tg","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T16:43:02.831Z"}
+{"correlationId":"mdvha3gmxf","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T16:43:02.833Z"}
+{"correlationId":"ko5i77jzh6c","level":"info","message":"Environment: development","timestamp":"2025-05-30T16:43:02.833Z"}
+{"correlationId":"rzpk7fzlttg","level":"info","message":"::1 - - [30/May/2025:16:43:06 +0000] \"GET /users HTTP/1.1\" 404 144 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T16:43:06.910Z"}
+{"correlationId":"eb4ggst9tts","level":"info","message":"::1 - - [30/May/2025:16:43:18 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T16:43:18.645Z"}
+{"correlationId":"kjie7a8nt7b","level":"info","message":"::1 - - [30/May/2025:16:43:21 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T16:43:21.976Z"}
+{"correlationId":"is20p069rv","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T17:10:11.539Z"}
+{"correlationId":"5ud0ktfs6","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T17:10:11.542Z"}
+{"correlationId":"qxbgp1dzok","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T17:10:11.543Z"}
+{"correlationId":"josfh8yb1qj","level":"info","message":"Environment: development","timestamp":"2025-05-30T17:10:11.544Z"}
+{"correlationId":"o727dnvudjn","level":"info","message":"::1 - - [30/May/2025:17:10:18 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T17:10:18.138Z"}

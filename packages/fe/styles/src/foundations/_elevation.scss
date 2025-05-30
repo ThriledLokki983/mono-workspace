@@ -1,0 +1,34 @@
+// =============================================================================
+// DESIGN TOKENS - ELEVATION & SHADOWS
+// Soft, luxurious shadows for premium feel - using Open Props and CSS custom properties
+// =============================================================================
+
+:root {
+  // Shadow Tokens - extending Open Props shadows
+  --shadow-sm: var(--shadow-1);
+  --shadow-md: var(--shadow-2);
+  --shadow-lg: var(--shadow-3);
+  --shadow-xl: var(--shadow-4);
+  --shadow-2xl: var(--shadow-5);
+
+  // Custom luxury shadows
+  --shadow-focus: 0 0 0 3px rgba(from var(--color-brand-primary) r g b / 0.15);
+  --shadow-glow: 0 0 20px rgba(from var(--color-accent-primary) r g b / 0.3);
+
+  // Border Radius - extending Open Props radii
+  --radius-sm: var(--radius-2);
+  --radius-md: var(--radius-3);
+  --radius-lg: var(--radius-4);
+  --radius-xl: var(--radius-5);
+  --radius-2xl: var(--radius-6);
+  --radius-full: var(--radius-round);
+
+  // Z-index Scale - using Open Props z-index values
+  --z-dropdown: var(--layer-1);
+  --z-sticky: var(--layer-2);
+  --z-fixed: var(--layer-3);
+  --z-modal-backdrop: var(--layer-4);
+  --z-modal: var(--layer-5);
+  --z-popover: var(--layer-6);
+  --z-tooltip: var(--layer-top);
+}

@@ -1,0 +1,215 @@
+// =============================================================================
+// BASE STYLES - MAIN ENTRY POINT
+// Premium design system for luxury frontend applications
+// Powered by Open Props with custom luxury theme extensions
+// =============================================================================
+
+// Import all our custom modules (must come before any CSS rules)
+@use 'foundations' as *;
+@use 'components' as *;
+@use 'layouts' as *;
+@use 'utilities' as *;
+
+// Note: Open Props normalize can be imported separately in your app
+// @use 'open-props/normalize.min.css';
+
+// Luxury base styles extending Open Props normalize
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-light);
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Typography base styles using CSS custom properties
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--spacing-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+h5 {
+  font-size: var(--font-size-base);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+h6 {
+  font-size: var(--font-size-sm);
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-base);
+  }
+}
+
+p {
+  margin: 0 0 var(--spacing-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+// Links
+a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: var(--transition-color);
+
+  &:hover {
+    color: var(--color-brand-dark);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+// Lists
+ul,
+ol {
+  margin: 0 0 var(--spacing-lg);
+  padding-left: var(--spacing-xl);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+// Code
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--color-background-surface);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-divider);
+}
+
+pre {
+  margin: 0 0 var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--color-background-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-divider);
+  overflow-x: auto;
+
+  code {
+    background: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 var(--spacing-lg);
+}
+
+th,
+td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+th {
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-background-surface);
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Forms
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Focus styles for accessibility
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+// Selection styles
+::selection {
+  background-color: rgb(from var(--color-brand-primary) r g b / 0.2);
+  color: var(--color-text-primary);
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

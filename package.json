@@ -8,10 +8,14 @@
   "private": true,
   "repository": "git@github.com:ThriledLokki983/mono-workspace.git",
   "workspaces": [
-    "packages/*",
-    "packages/config/*",
+    "packages/be/*",
+    "packages/fe/*",
+    "packages/shared/*",
+    "packages/shared/config/*",
     "apps/fe/*",
-    "apps/be/*"
+    "apps/be/*",
+    "apps/test/fe/*",
+    "apps/test/be/*"
   ],
   "packageManager": "yarn@4.9.1",
   "scripts": {

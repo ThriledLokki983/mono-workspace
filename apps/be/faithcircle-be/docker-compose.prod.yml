@@ -1,0 +1,71 @@
+version: '3.9'
+
+services:
+  proxy:
+    image: nginx:alpine
+    container_name: proxy-prod
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    restart: 'unless-stopped'
+    networks:
+      - backend-prod
+
+  server:
+    container_name: server-prod
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    ports:
+      - '${PORT:-5555}:${PORT:-5555}'
+    env_file:
+      - .env.production.local
+    environment:
+      - NODE_ENV=production
+    restart: 'unless-stopped'
+    networks:
+      - backend-prod
+    depends_on:
+      - pg
+      - redis-prod
+
+  pg:
+    container_name: pg-prod
+    image: postgres:14.5-alpine
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    env_file:
+      - .env.production.local
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - pg_data_prod:/var/lib/postgresql/data
+      - ./src/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: 'always'
+    networks:
+      - backend-prod
+
+  redis-prod:
+    container_name: redis-prod
+    image: redis:alpine
+    ports:
+      - '${REDIS_PORT:-6379}:6379'
+    volumes:
+      - redis_data_prod:/data
+    restart: 'always'
+    command: redis-server --appendonly yes
+    networks:
+      - backend-prod
+
+networks:
+  backend-prod:
+    driver: bridge
+
+volumes:
+  pg_data_prod:
+    driver: local
+  redis_data_prod:
+    driver: local

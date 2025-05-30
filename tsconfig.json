@@ -1,12 +1,16 @@
 {
   "files": [],
   "references": [
-    { "path": "packages/types" },
-    { "path": "packages/fe-config" },
-    { "path": "packages/components" },
-    { "path": "packages/styles" },
-    { "path": "apps/fe/test-app" },
-    { "path": "apps/fe/faithcircle" }
+    { "path": "packages/shared/types" },
+    { "path": "packages/fe/config" },
+    { "path": "packages/fe/components" },
+    { "path": "packages/fe/styles" },
+    { "path": "packages/fe/ui" },
+    { "path": "packages/be/be-core" },
+    { "path": "packages/be/be-types" },
+    { "path": "apps/fe/faithcircle" },
+    { "path": "apps/test/fe/test-fe-app" },
+    { "path": "apps/test/be/test-be-app" }
   ],
   "compilerOptions": {
     "incremental": true,

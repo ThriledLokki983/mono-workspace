@@ -1,0 +1,23 @@
+{
+  "name": "test-be-app",
+  "version": "1.0.0",
+  "description": "Example backend service using the mono-workspace framework",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@mono-workspace/be-core": "workspace:*",
+    "@mono-workspace/be-types": "workspace:*",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.0"
+  }
+}

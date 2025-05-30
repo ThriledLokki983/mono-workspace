@@ -1,0 +1,74 @@
+version: '3.9'
+
+services:
+  proxy:
+    image: nginx:alpine
+    container_name: proxy
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    restart: 'unless-stopped'
+    networks:
+      - backend
+
+  server:
+    container_name: server
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports:
+      - '${PORT:-5555}:${PORT:-5555}'
+    env_file:
+      - .env.development.local
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - ./src:/app/src:delegated
+    restart: 'unless-stopped'
+    networks:
+      - backend
+    depends_on:
+      - pg
+      - redis
+    # Use this command to ensure nodemon properly watches for changes
+    command: npm run dev
+
+  pg:
+    container_name: pg
+    image: postgres:14.5-alpine
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    env_file:
+      - .env.development.local
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./src/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: 'always'
+    networks:
+      - backend
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - '${REDIS_PORT:-6379}:6379'
+    volumes:
+      - redis_data:/data
+    restart: 'always'
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  pg_data:
+    driver: local
+  redis_data:
+    driver: local

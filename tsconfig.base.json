@@ -65,12 +65,22 @@
     /* Path Mapping */
     "baseUrl": ".",
     "paths": {
-      "@mono/types": ["packages/types/dist"],
-      "@mono/types/*": ["packages/types/dist/*"],
-      "@mono/components": ["packages/components/dist"],
-      "@mono/components/*": ["packages/components/dist/*"],
-      "@mono/fe-config": ["packages/fe-config/dist"],
-      "@mono/fe-config/*": ["packages/fe-config/dist/*"]
+      "@mono-workspace/ui": ["packages/fe/ui/dist"],
+      "@mono-workspace/ui/*": ["packages/fe/ui/dist/*"],
+      "@mono-workspace/styles": ["packages/fe/styles/dist"],
+      "@mono-workspace/types": ["packages/shared/types/dist"],
+      "@mono-workspace/be-core": ["packages/be/be-core/dist"],
+      "@mono-workspace/fe-config": ["packages/fe/config/dist"],
+      "@mono-workspace/config": ["packages/shared/config/dist"],
+      "@mono-workspace/styles/*": ["packages/fe/styles/dist/*"],
+      "@mono-workspace/be-types": ["packages/be/be-types/dist"],
+      "@mono-workspace/types/*": ["packages/shared/types/dist/*"],
+      "@mono-workspace/be-core/*": ["packages/be/be-core/dist/*"],
+      "@mono-workspace/fe-config/*": ["packages/fe/config/dist/*"],
+      "@mono-workspace/config/*": ["packages/shared/config/dist/*"],
+      "@mono-workspace/be-types/*": ["packages/be/be-types/dist/*"],
+      "@mono-workspace/components": ["packages/fe/components/dist"],
+      "@mono-workspace/components/*": ["packages/fe/components/dist/*"]
     }
   },
   "exclude": [

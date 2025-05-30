@@ -8,8 +8,8 @@
   "include": ["src"],
   "exclude": ["dist", "node_modules"],
   "references": [
-    { "path": "../../../packages/types" },
-    { "path": "../../../packages/fe-config" },
-    { "path": "../../../packages/components" }
+    { "path": "../../../packages/shared/types" },
+    { "path": "../../../packages/fe/config" },
+    { "path": "../../../packages/fe/components" }
   ]
 }

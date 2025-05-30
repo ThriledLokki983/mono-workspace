@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "logs/error/.47f964d84f67ca7e522e8242a2e94bf328c76f39-audit.json",
+    "files": [
+        {
+            "date": 1748621884475,
+            "name": "logs/error/2025-05-30.log",
+            "hash": "6222036711f659d0fdfcd1d08e77eb8f46dd7187f3c7c92ebdec7222d4709d44"
+        }
+    ],
+    "hashType": "sha256"
+}

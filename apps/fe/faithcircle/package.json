@@ -16,11 +16,11 @@
     "preview": "npx vite preview"
   },
   "dependencies": {
-    "@mono/components": "workspace:^",
-    "@mono/fe-config": "workspace:^",
-    "@mono/styles": "workspace:^"
+    "@mono-workspace/fe-components": "workspace:^",
+    "@mono-workspace/fe-config": "workspace:^",
+    "@mono-workspace/fe-styles": "workspace:^"
   },
   "devDependencies": {
-    "@mono/eslint-config-custom": "workspace:^"
+    "@mono-workspace/eslint-config-custom": "workspace:^"
   }
 }

@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# IDE specific files
+.idea/
+
+# OS generated files
+.DS_Store
+
+# Coverage reports
+coverage/
+
+# Temporary files
+*.tmp
+
+# TypeScript cache (keep dist/ for monorepo development)
+*.tsbuildinfo
+
+# Yarn and npm lock files
+yarn.lock
+package-lock.json
+
+# TypeScript source maps
+*.js.map
+
+# TypeScript declaration map files
+*.d.ts.map
+
+# TypeScript config files

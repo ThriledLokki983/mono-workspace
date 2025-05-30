@@ -1,0 +1,360 @@
+openapi: 3.0.0
+info:
+  title: Huishelder API
+  version: 1.0.0
+  description: The API documentation for the Huishelder backend service
+
+tags:
+  - name: users
+    description: User management endpoints
+  - name: auth
+    description: Authentication endpoints
+  - name: health
+    description: System health endpoints
+
+paths:
+  # [GET] users
+  /users:
+    get:
+      tags:
+        - users
+      summary: Find All Users
+      responses:
+        200:
+          description: 'Users retrieved successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        500:
+          description: 'Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # [POST] users
+    post:
+      tags:
+        - users
+      summary: Add User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        201:
+          description: 'User created successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: 'Conflict - Email already exists'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: 'Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # [GET] users/me
+  /users/me:
+    get:
+      tags:
+        - users
+      summary: Get current user profile
+      description: Retrieve the profile of the currently authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: 'Current user data retrieved successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        401:
+          description: 'Unauthorized - Authentication required'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: 'Authentication token missing'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # [GET] users/id
+  /users/{id}:
+    get:
+      tags:
+        - users
+      summary: Find User By Id
+      parameters:
+        - name: id
+          in: path
+          description: User Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: 'User retrieved successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        404:
+          description: 'User not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: 'Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # [PUT] users/id
+    put:
+      tags:
+        - users
+      summary: Update User By Id
+      parameters:
+        - name: id
+          in: path
+          description: user Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        200:
+          description: 'User updated successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: 'User not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: 'Conflict - Email already exists'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: 'Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # [DELETE] users/id
+    delete:
+      tags:
+        - users
+      summary: Delete User By Id
+      parameters:
+        - name: id
+          in: path
+          description: user Id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: 'User deleted successfully'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        404:
+          description: 'User not found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: 'Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+# Authentication related endpoints should also be documented here...
+
+components:
+  schemas:
+    # Standard API Response format
+    ApiResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Indicates if the request was successful
+          example: true
+        message:
+          type: string
+          description: A human-readable message describing the result
+          example: 'User retrieved successfully'
+        data:
+          type: object
+          description: The response data payload
+        meta:
+          type: object
+          description: Metadata about the response (pagination, counts, etc.)
+          properties:
+            count:
+              type: integer
+              description: Number of items in the data array
+              example: 10
+            total:
+              type: integer
+              description: Total number of items available
+              example: 120
+            page:
+              type: integer
+              description: Current page number
+              example: 1
+            limit:
+              type: integer
+              description: Number of items per page
+              example: 10
+        statusCode:
+          type: integer
+          description: HTTP status code
+          example: 200
+
+    # Standard Error Response format
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Always false for errors
+          example: false
+        message:
+          type: string
+          description: A human-readable error message
+          example: 'User not found'
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Detailed error message
+              code:
+                type: string
+                description: Error code
+              field:
+                type: string
+                description: Field that caused the error
+        statusCode:
+          type: integer
+          description: HTTP status code
+          example: 404
+      required:
+        - success
+        - message
+        - statusCode
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: User unique identifier
+        email:
+          type: string
+          format: email
+          description: User email
+        password:
+          type: string
+          description: User password (hashed)
+        firstName:
+          type: string
+          description: User first name
+        lastName:
+          type: string
+          description: User last name
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update timestamp
+      required:
+        - id
+        - email
+        - password
+
+    CreateUserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: User email
+        password:
+          type: string
+          description: User password
+        firstName:
+          type: string
+          description: User first name
+        lastName:
+          type: string
+          description: User last name
+      required:
+        - email
+        - password
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+servers:
+  - url: /api
+    description: Development server
