@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/eslint-config-custom",
+  "name": "@mono/eslint-config-custom",
   "version": "1.0.0",
   "description": "Shared ESLint and Prettier configuration for mono-workspace",
   "type": "module",

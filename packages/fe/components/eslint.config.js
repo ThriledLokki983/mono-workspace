@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import reactConfig from '@mono-workspace/eslint-config-custom/react';
+import reactConfig from '@mono/eslint-config-custom/react';
 
 export default [
   js.configs.recommended,

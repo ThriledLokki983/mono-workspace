@@ -2,11 +2,7 @@ import { Request, Response, NextFunction, RequestHandler } from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import cors from "cors";
-import {
-  RateLimitConfig,
-  CorsConfig,
-  HelmetConfig,
-} from "@mono-workspace/be-types";
+import { RateLimitConfig, CorsConfig, HelmetConfig } from "@mono/be-types";
 
 export class SecurityMiddleware {
   /**

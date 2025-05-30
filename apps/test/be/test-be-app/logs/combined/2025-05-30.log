@@ -48,3 +48,31 @@
 {"correlationId":"qxbgp1dzok","level":"info","message":"🚀 Basic API Service listening on port 3001","timestamp":"2025-05-30T17:10:11.543Z"}
 {"correlationId":"josfh8yb1qj","level":"info","message":"Environment: development","timestamp":"2025-05-30T17:10:11.544Z"}
 {"correlationId":"o727dnvudjn","level":"info","message":"::1 - - [30/May/2025:17:10:18 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T17:10:18.138Z"}
+{"correlationId":"93sirdlvc0v","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T20:32:58.365Z"}
+{"correlationId":"651tbqb0nht","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T20:32:58.367Z"}
+{"correlationId":"kxcyeo0eps","level":"info","message":"🚀 Basic API Service listening on port 3002","timestamp":"2025-05-30T20:32:58.368Z"}
+{"correlationId":"707os1v4jei","level":"info","message":"Environment: development","timestamp":"2025-05-30T20:32:58.369Z"}
+{"correlationId":"svtihrpnuk","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T20:33:13.169Z"}
+{"correlationId":"5x4xsqfwr1","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T20:33:13.172Z"}
+{"correlationId":"qor7u2ipest","level":"info","message":"🚀 Basic API Service listening on port 3002","timestamp":"2025-05-30T20:33:13.173Z"}
+{"correlationId":"1n8o46m0y71","level":"info","message":"Environment: development","timestamp":"2025-05-30T20:33:13.173Z"}
+{"correlationId":"mrnfgua1vso","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T20:34:11.180Z"}
+{"correlationId":"ubfprawbox","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T20:34:11.182Z"}
+{"correlationId":"tim3dt4ovw","level":"info","message":"🚀 Basic API Service listening on port 3002","timestamp":"2025-05-30T20:34:11.183Z"}
+{"correlationId":"tcv10gjuld","level":"info","message":"Environment: development","timestamp":"2025-05-30T20:34:11.184Z"}
+{"correlationId":"n6cr00ryr8a","level":"info","message":"::1 - - [30/May/2025:20:34:24 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T20:34:24.800Z"}
+{"correlationId":"4m1uj9lhhmw","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T20:38:57.368Z"}
+{"correlationId":"lpoalk2sl5","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T20:38:57.370Z"}
+{"correlationId":"ufkbht8sg1","level":"info","message":"🚀 Basic API Service listening on port 3002","timestamp":"2025-05-30T20:38:57.371Z"}
+{"correlationId":"0h38mr50h2xp","level":"info","message":"Environment: development","timestamp":"2025-05-30T20:38:57.372Z"}
+{"correlationId":"g0hz7vwhpb","level":"info","message":"::1 - - [30/May/2025:20:39:02 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:39:02.910Z"}
+{"correlationId":"ha06t4todce","level":"info","message":"::1 - - [30/May/2025:20:39:06 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"PostmanRuntime/7.43.3\"","timestamp":"2025-05-30T20:39:06.004Z"}
+{"correlationId":"s6vd7vjik","level":"info","message":"::1 - - [30/May/2025:20:39:14 +0000] \"GET /api/users HTTP/1.1\" 200 271 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:39:14.979Z"}
+{"correlationId":"ltwxmjyn4y","level":"info","message":"::1 - - [30/May/2025:20:39:39 +0000] \"GET /api/users/1 HTTP/1.1\" 200 173 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:39:39.778Z"}
+{"correlationId":"hq9stdnkgso","level":"info","message":"::1 - - [30/May/2025:20:39:49 +0000] \"POST /api/users HTTP/1.1\" 201 177 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:39:49.439Z"}
+{"correlationId":"y6nm3oc5nh9","level":"info","message":"::1 - - [30/May/2025:20:39:58 +0000] \"GET /api/users HTTP/1.1\" 200 370 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:39:58.100Z"}
+{"correlationId":"rsvuvmulps","level":"info","message":"::1 - - [30/May/2025:20:40:06 +0000] \"GET /api/users/999 HTTP/1.1\" 404 73 \"-\" \"curl/8.7.1\"","timestamp":"2025-05-30T20:40:06.606Z"}
+{"correlationId":"3calnkkj642","level":"info","message":"Initializing plugin: UserPlugin@1.0.0","timestamp":"2025-05-30T20:48:40.631Z"}
+{"correlationId":"v7sznc3agk","level":"info","message":"Plugin initialized successfully: UserPlugin","timestamp":"2025-05-30T20:48:40.634Z"}
+{"correlationId":"6xplltpc6hv","level":"info","message":"🚀 Basic API Service listening on port 3002","timestamp":"2025-05-30T20:48:40.635Z"}
+{"correlationId":"s7zujde2v7","level":"info","message":"Environment: development","timestamp":"2025-05-30T20:48:40.636Z"}

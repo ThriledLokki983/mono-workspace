@@ -1,5 +1,5 @@
-import { BaseApp } from "@mono-workspace/be-core";
-import { AppConfig } from "@mono-workspace/be-types";
+import { BaseApp } from "@mono/be-core";
+import { AppConfig } from "@mono/be-types";
 import { UserPlugin } from "./plugins/UserPlugin";
 
 console.log("🚀 Starting Basic API Service...");
@@ -7,7 +7,7 @@ console.log("🚀 Starting Basic API Service...");
 // Application configuration
 const config: AppConfig = {
   name: "Basic API Service",
-  port: 3001,
+  port: 3002,
   environment: "development",
   cors: {
     origin: ["http://localhost:3000", "http://localhost:5173"],

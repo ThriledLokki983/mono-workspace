@@ -1,6 +1,6 @@
 import { Express, Request, Response, Router } from "express";
-import { BasePlugin } from "@mono-workspace/be-core";
-import { ApiResponse } from "@mono-workspace/be-types";
+import { BasePlugin } from "@mono/be-core";
+import { ApiResponse } from "@mono/be-types";
 
 interface User {
   id: number;

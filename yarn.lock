@@ -1451,9 +1451,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mono-workspace/be-core@workspace:*, @mono-workspace/be-core@workspace:packages/be/be-core":
+"@mono/be-core@workspace:*, @mono/be-core@workspace:packages/be/be-core":
   version: 0.0.0-use.local
-  resolution: "@mono-workspace/be-core@workspace:packages/be/be-core"
+  resolution: "@mono/be-core@workspace:packages/be/be-core"
   dependencies:
     "@types/compression": "npm:^1.7.2"
     "@types/cors": "npm:^2.8.12"
@@ -1464,22 +1464,23 @@ __metadata:
     compression: "npm:^1.8.0"
     cors: "npm:^2.8.5"
     express: "npm:^5.1.0"
-    express-rate-limit: "npm:^7.5.0"
+    express-rate-limit: "npm:^6.10.0"
     helmet: "npm:^8.1.0"
     hpp: "npm:^0.2.3"
     morgan: "npm:^1.10.0"
+    path-to-regexp: "npm:^6.3.0"
     reflect-metadata: "npm:^0.2.2"
     typescript: "npm:^5.0.0"
     winston: "npm:^3.17.0"
     winston-daily-rotate-file: "npm:^5.0.0"
   peerDependencies:
-    "@mono-workspace/be-types": "workspace:*"
+    "@mono/be-types": "workspace:*"
   languageName: unknown
   linkType: soft
 
-"@mono-workspace/be-types@workspace:*, @mono-workspace/be-types@workspace:packages/be/be-types":
+"@mono/be-types@workspace:*, @mono/be-types@workspace:packages/be/be-types":
   version: 0.0.0-use.local
-  resolution: "@mono-workspace/be-types@workspace:packages/be/be-types"
+  resolution: "@mono/be-types@workspace:packages/be/be-types"
   dependencies:
     "@types/cors": "npm:^2.8.12"
     "@types/express": "npm:^4.17.21"
@@ -1488,9 +1489,41 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mono-workspace/eslint-config-custom@workspace:^, @mono-workspace/eslint-config-custom@workspace:packages/shared/config/eslint-config-custom":
+"@mono/components@workspace:^, @mono/components@workspace:packages/fe/components":
   version: 0.0.0-use.local
-  resolution: "@mono-workspace/eslint-config-custom@workspace:packages/shared/config/eslint-config-custom"
+  resolution: "@mono/components@workspace:packages/fe/components"
+  dependencies:
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
+    "@mono/types": "workspace:^"
+  peerDependencies:
+    lucide-react: ">=0.500.0"
+    react: ">=18.0.0"
+    react-aria-components: ">=1.0.0"
+    react-dom: ">=18.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@mono/config@workspace:^, @mono/config@workspace:packages/fe/config":
+  version: 0.0.0-use.local
+  resolution: "@mono/config@workspace:packages/fe/config"
+  dependencies:
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/types": "workspace:^"
+  peerDependencies:
+    "@tanstack/react-query": ">=5.0.0"
+    "@vitejs/plugin-react-swc": ">=3.0.0"
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+    react-router: ">=7.0.0"
+    react-router-dom: ">=7.0.0"
+    vite: ">=6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@mono/eslint-config-custom@workspace:^, @mono/eslint-config-custom@workspace:packages/shared/config/eslint-config-custom":
+  version: 0.0.0-use.local
+  resolution: "@mono/eslint-config-custom@workspace:packages/shared/config/eslint-config-custom"
   dependencies:
     "@eslint/js": "npm:^9.27.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.33.0"
@@ -1511,43 +1544,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mono-workspace/fe-components@workspace:^, @mono-workspace/fe-components@workspace:packages/fe/components":
+"@mono/styles@workspace:^, @mono/styles@workspace:packages/fe/styles":
   version: 0.0.0-use.local
-  resolution: "@mono-workspace/fe-components@workspace:packages/fe/components"
+  resolution: "@mono/styles@workspace:packages/fe/styles"
   dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
-    "@mono-workspace/fe-styles": "workspace:^"
-    "@mono-workspace/shared-types": "workspace:^"
-  peerDependencies:
-    lucide-react: ">=0.500.0"
-    react: ">=18.0.0"
-    react-aria-components: ">=1.0.0"
-    react-dom: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
-"@mono-workspace/fe-config@workspace:^, @mono-workspace/fe-config@workspace:packages/fe/config":
-  version: 0.0.0-use.local
-  resolution: "@mono-workspace/fe-config@workspace:packages/fe/config"
-  dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
-    "@mono-workspace/shared-types": "workspace:^"
-  peerDependencies:
-    "@tanstack/react-query": ">=5.0.0"
-    "@vitejs/plugin-react-swc": ">=3.0.0"
-    react: ">=18.0.0"
-    react-dom: ">=18.0.0"
-    react-router: ">=7.0.0"
-    react-router-dom: ">=7.0.0"
-    vite: ">=6.0.0"
-  languageName: unknown
-  linkType: soft
-
-"@mono-workspace/fe-styles@workspace:^, @mono-workspace/fe-styles@workspace:packages/fe/styles":
-  version: 0.0.0-use.local
-  resolution: "@mono-workspace/fe-styles@workspace:packages/fe/styles"
-  dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
     eslint: "npm:^9.27.0"
     install: "npm:^0.13.0"
     open-props: "npm:^1.7.15"
@@ -1559,14 +1560,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mono-workspace/shared-types@workspace:^, @mono-workspace/shared-types@workspace:packages/shared/types":
+"@mono/types@workspace:^, @mono/types@workspace:packages/shared/types":
   version: 0.0.0-use.local
-  resolution: "@mono-workspace/shared-types@workspace:packages/shared/types"
+  resolution: "@mono/types@workspace:packages/shared/types"
   dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
     eslint: "npm:^9.27.0"
     prettier: "npm:^3.5.3"
     typescript: "npm:^5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@mono/ui@workspace:packages/fe/ui":
+  version: 0.0.0-use.local
+  resolution: "@mono/ui@workspace:packages/fe/ui"
+  dependencies:
+    "@mono/components": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/types": "workspace:^"
+  peerDependencies:
+    lucide-react: ">=0.500.0"
+    react: ">=18.0.0"
+    react-aria-components: ">=1.0.0"
+    react-dom: ">=18.0.0"
   languageName: unknown
   linkType: soft
 
@@ -7516,6 +7532,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"express-rate-limit@npm:^6.10.0":
+  version: 6.11.2
+  resolution: "express-rate-limit@npm:6.11.2"
+  peerDependencies:
+    express: ^4 || ^5
+  checksum: 10c0/1f92107fca92423b6311ca26cb79a3d5d79ac5f5eb81791c382c2323e331da0e993249225615003e2db91b617d69ba0d428ef60d212bfabb7a83244645f10e0a
+  languageName: node
+  linkType: hard
+
 "express-rate-limit@npm:^7.5.0":
   version: 7.5.0
   resolution: "express-rate-limit@npm:7.5.0"
@@ -7665,10 +7690,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "faithcircle@workspace:apps/fe/faithcircle"
   dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
-    "@mono-workspace/fe-components": "workspace:^"
-    "@mono-workspace/fe-config": "workspace:^"
-    "@mono-workspace/fe-styles": "workspace:^"
+    "@mono/components": "workspace:^"
+    "@mono/config": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -11371,6 +11396,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-to-regexp@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "path-to-regexp@npm:6.3.0"
+  checksum: 10c0/73b67f4638b41cde56254e6354e46ae3a2ebc08279583f6af3d96fe4664fc75788f74ed0d18ca44fa4a98491b69434f9eee73b97bb5314bd1b5adb700f5c18d6
+  languageName: node
+  linkType: hard
+
 "path-to-regexp@npm:^8.0.0":
   version: 8.2.0
   resolution: "path-to-regexp@npm:8.2.0"
@@ -13639,8 +13671,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test-be-app@workspace:apps/test/be/test-be-app"
   dependencies:
-    "@mono-workspace/be-core": "workspace:*"
-    "@mono-workspace/be-types": "workspace:*"
+    "@mono/be-core": "workspace:*"
+    "@mono/be-types": "workspace:*"
     "@types/express": "npm:^4.17.17"
     "@types/node": "npm:^20.0.0"
     express: "npm:^5.1.0"
@@ -13664,10 +13696,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test-fe-app@workspace:apps/test/fe/test-fe-app"
   dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
-    "@mono-workspace/fe-components": "workspace:^"
-    "@mono-workspace/fe-config": "workspace:^"
-    "@mono-workspace/fe-styles": "workspace:^"
+    "@mono/components": "workspace:^"
+    "@mono/config": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
+    "@mono/styles": "workspace:^"
   languageName: unknown
   linkType: soft
 

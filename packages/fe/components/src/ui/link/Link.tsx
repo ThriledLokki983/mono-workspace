@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { Link as AriaLink } from 'react-aria-components';
-import type { LinkProps } from '@mono-workspace/shared-types/fe/ui';
+import type { LinkProps } from '@mono/types/fe/ui';
 import styles from './Link.module.scss';
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
@@ -51,4 +51,4 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 Link.displayName = 'Link';
 
 // Export types for consumers
-export type { LinkProps, LinkVariant, LinkSize } from '@mono-workspace/shared-types/fe/ui';
+export type { LinkProps, LinkVariant, LinkSize } from '@mono/types/fe/ui';

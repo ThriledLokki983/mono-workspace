@@ -99,9 +99,12 @@ export class RedisMonitor extends EventEmitter {
     }, interval);
 
     // Also start ping interval (more frequent)
-    this.pingInterval = setInterval(() => {
-      this.measureLatency();
-    }, Math.min(interval / 4, 15000)); // At least every 15 seconds
+    this.pingInterval = setInterval(
+      () => {
+        this.measureLatency();
+      },
+      Math.min(interval / 4, 15000),
+    ); // At least every 15 seconds
 
     // Collect initial metrics
     this.collectMetrics();

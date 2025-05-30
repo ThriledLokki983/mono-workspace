@@ -19,6 +19,7 @@ const testUser: CreateUserDto = {
 };
 
 // Login credentials
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const loginCredentials: UserLoginDto = {
   email: testUser.email,
   password: testUser.password,

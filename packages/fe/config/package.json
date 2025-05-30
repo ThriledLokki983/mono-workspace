@@ -28,10 +28,10 @@
     "format:check": "prettier --check *.{js,jsx,ts,tsx,json,md}"
   },
   "dependencies": {
-    "@mono-workspace/shared-types": "workspace:^"
+    "@mono/types": "workspace:^"
   },
   "devDependencies": {
-    "@mono-workspace/eslint-config-custom": "workspace:^"
+    "@mono/eslint-config-custom": "workspace:^"
   },
   "peerDependencies": {
     "@tanstack/react-query": ">=5.0.0",

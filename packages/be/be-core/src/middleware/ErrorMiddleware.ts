@@ -21,7 +21,7 @@ export class ErrorMiddleware {
       error: HttpException,
       req: Request,
       res: Response,
-      _next: NextFunction
+      _next: NextFunction,
     ) => {
       try {
         const status: number = error.status || error.statusCode || 500;

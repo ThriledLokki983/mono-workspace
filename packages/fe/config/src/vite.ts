@@ -54,22 +54,13 @@ export function createViteConfig(options: ViteConfigOptions): UserConfig {
     resolve: {
       alias: {
         "@": resolve(process.cwd(), "src"),
-        "@mono-workspace/fe-components": resolve(
+        "@mono/components": resolve(
           __dirname,
-          "../../../fe/components/index.tsx"
+          "../../../fe/components/index.tsx",
         ),
-        "@mono-workspace/fe-styles": resolve(
-          __dirname,
-          "../../../fe/styles/src"
-        ),
-        "@mono-workspace/shared-types": resolve(
-          __dirname,
-          "../../../shared/types/src"
-        ),
-        "@mono-workspace/fe-config": resolve(
-          __dirname,
-          "../../../fe/config/src"
-        ),
+        "@mono/styles": resolve(__dirname, "../../../fe/styles/src"),
+        "@mono/types": resolve(__dirname, "../../../shared/types/src"),
+        "@mono/config": resolve(__dirname, "../../../fe/config/src"),
         ...additionalAliases,
       },
     },
@@ -88,10 +79,10 @@ export function createViteConfig(options: ViteConfigOptions): UserConfig {
       ],
       // Exclude local workspace packages
       exclude: [
-        "@mono-workspace/fe-components",
-        "@mono-workspace/fe-styles",
-        "@mono-workspace/shared-types",
-        "@mono-workspace/fe-config",
+        "@mono/components",
+        "@mono/styles",
+        "@mono/types",
+        "@mono/config",
       ],
     },
     css: {
@@ -103,13 +94,10 @@ export function createViteConfig(options: ViteConfigOptions): UserConfig {
       preprocessorOptions: {
         scss: {
           api: "modern-compiler",
-          additionalData: `
-            @use "sass:color";
-            @use "sass:math";
-            @use "@mono-workspace/fe-styles/src/base-styles" as *;
-          `,
           loadPaths: [
             resolve(__dirname, "../../../fe/styles/src"),
+            resolve(__dirname, "../../../fe/styles"),
+            resolve(__dirname, "../../../"),
             resolve(__dirname, "../../../node_modules"),
           ],
         },

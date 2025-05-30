@@ -8,7 +8,7 @@ import hpp from "hpp";
 import morgan from "morgan";
 import { Logger } from "./logging/Logger";
 import { Plugin } from "./plugins/Plugin";
-import { AppConfig, RateLimitConfig } from "@mono-workspace/be-types";
+import { AppConfig, RateLimitConfig } from "@mono/be-types";
 
 export class BaseApp {
   private app: Express;
@@ -75,7 +75,7 @@ export class BaseApp {
       this.app.use(
         morgan("combined", {
           stream: { write: (message) => this.logger.info(message.trim()) },
-        })
+        }),
       );
     }
 
@@ -94,7 +94,7 @@ export class BaseApp {
     for (const plugin of sortedPlugins) {
       try {
         this.logger.info(
-          `Initializing plugin: ${plugin.name}@${plugin.version}`
+          `Initializing plugin: ${plugin.name}@${plugin.version}`,
         );
         await plugin.register(this.app, this.config);
         this.logger.info(`Plugin initialized successfully: ${plugin.name}`);
@@ -120,7 +120,7 @@ export class BaseApp {
     const visit = (plugin: Plugin) => {
       if (visiting.has(plugin.name)) {
         throw new Error(
-          `Circular dependency detected in plugin: ${plugin.name}`
+          `Circular dependency detected in plugin: ${plugin.name}`,
         );
       }
       if (visited.has(plugin.name)) {
@@ -172,7 +172,7 @@ export class BaseApp {
     return new Promise((resolve) => {
       this.app.listen(this.config.port, () => {
         this.logger.info(
-          `🚀 ${this.config.name} listening on port ${this.config.port}`
+          `🚀 ${this.config.name} listening on port ${this.config.port}`,
         );
         this.logger.info(`Environment: ${this.config.environment}`);
         resolve();

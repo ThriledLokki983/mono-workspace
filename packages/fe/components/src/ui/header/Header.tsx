@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { Link } from '../link/Link';
 import { Home, User } from 'lucide-react';
-import type { HeaderProps } from '@mono-workspace/shared-types/fe/ui';
+import type { HeaderProps } from '@mono/types/fe/ui';
 import styles from './Header.module.scss';
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(

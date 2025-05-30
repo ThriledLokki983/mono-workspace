@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Link, Header } from '@mono-workspace/fe-components';
+import { Button, Link, Header } from '@mono/components';
 import { AccessibilityDemo } from './AccessibilityDemo';
 import { Home, Settings, BookOpen } from 'lucide-react';
 import reactLogo from './assets/react.svg';

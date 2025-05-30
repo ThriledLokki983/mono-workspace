@@ -1,4 +1,4 @@
-import { createViteConfig } from '@mono-workspace/fe-config/vite';
+import { createViteConfig } from '@mono/config/vite';
 
 export default createViteConfig({
   appName: 'test-app',

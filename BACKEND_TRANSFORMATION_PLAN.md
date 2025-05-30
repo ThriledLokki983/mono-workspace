@@ -157,7 +157,7 @@ export abstract class BasePlugin implements Plugin {
 export class ConfigManager {
   static load<T extends BaseConfig>(
     schema: ConfigSchema<T>,
-    sources: ConfigSource[] = ["env", "file"]
+    sources: ConfigSource[] = ["env", "file"],
   ): T {
     const config = this.mergeConfigs(sources);
     return this.validate(config, schema);
@@ -169,7 +169,7 @@ export class ConfigManager {
 
   static createEnvironmentSpecific<T>(
     base: T,
-    overrides: Partial<Record<Environment, Partial<T>>>
+    overrides: Partial<Record<Environment, Partial<T>>>,
   ): T {
     // Environment-specific configuration merging
   }
@@ -193,7 +193,7 @@ export class JWTAuthProvider implements AuthProvider {
   constructor(
     private config: JWTConfig,
     private userService: UserService,
-    private tokenStorage: TokenStorage
+    private tokenStorage: TokenStorage,
   ) {}
 
   async authenticate(token: string): Promise<AuthResult> {
@@ -210,7 +210,7 @@ export class AuthPlugin extends BasePlugin {
     this.authProvider = new JWTAuthProvider(
       config.jwt,
       config.userService,
-      config.tokenStorage
+      config.tokenStorage,
     );
   }
 
@@ -303,7 +303,7 @@ export class QueryBuilder {
 export class MigrationRunner {
   constructor(
     private databaseManager: DatabaseManager,
-    private config: MigrationConfig
+    private config: MigrationConfig,
   ) {}
 
   async up(connectionName?: string): Promise<void> {
@@ -365,7 +365,7 @@ export class ApiTester {
   expectError(
     response: Response,
     expectedStatus: number,
-    expectedMessage?: string
+    expectedMessage?: string,
   ) {
     expect(response.status).toBe(expectedStatus);
     expect(response.body.success).toBe(false);
@@ -438,7 +438,7 @@ export class MetricsCollector {
           req.method,
           req.route?.path,
           res.statusCode,
-          duration
+          duration,
         );
       });
       next();

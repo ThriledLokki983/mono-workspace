@@ -16,7 +16,7 @@ export interface AppConfig {
 }
 
 export const createAppConfig = (
-  overrides: Partial<AppConfig> = {}
+  overrides: Partial<AppConfig> = {},
 ): AppConfig => {
   // Helper function to safely access import.meta.env
   const getEnvValue = (key: string, fallback: string) => {

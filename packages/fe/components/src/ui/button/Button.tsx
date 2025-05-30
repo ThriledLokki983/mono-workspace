@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { Button as AriaButton } from 'react-aria-components';
-import type { ButtonProps } from '@mono-workspace/shared-types/fe/ui';
+import type { ButtonProps } from '@mono/types/fe/ui';
 import styles from './Button.module.scss';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -51,4 +51,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = 'Button';
 
 // Export types for consumers
-export type { ButtonProps, ButtonVariant, ButtonSize } from '@mono-workspace/shared-types/fe/ui';
+export type { ButtonProps, ButtonVariant, ButtonSize } from '@mono/types/fe/ui';

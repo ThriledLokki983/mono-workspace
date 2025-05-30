@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/shared-types",
+  "name": "@mono/types",
   "version": "1.0.0",
   "description": "Shared TypeScript types and interfaces for mono-workspace",
   "type": "module",
@@ -39,7 +39,7 @@
   "author": "Gideon Nimoh",
   "license": "MIT",
   "devDependencies": {
-    "@mono-workspace/eslint-config-custom": "workspace:^",
+    "@mono/eslint-config-custom": "workspace:^",
     "eslint": "^9.27.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"

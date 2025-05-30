@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import baseConfig from '@mono-workspace/eslint-config-custom';
+import baseConfig from '@mono/eslint-config-custom';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [

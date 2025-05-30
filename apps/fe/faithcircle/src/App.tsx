@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header } from '@mono-workspace/fe-components';
+import { Header } from '@mono/components';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import styles from './App.module.scss';

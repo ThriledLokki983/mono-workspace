@@ -10,6 +10,7 @@ import { JwtBlacklist } from './jwtBlacklist';
 import { logger, redactSensitiveData } from '@utils/logger';
 
 // Use the centralized Redis client
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const jwtBlacklist = new JwtBlacklist(redisClient);
 
 const createToken = (user: User): TokenData => {
@@ -35,8 +36,8 @@ const createToken = (user: User): TokenData => {
     iat: now, // Issued at - when the token was issued
     nbf: now, // Not before - token not valid before this time
     exp: now + expiresIn, // Expiration time
-    iss: 'huishelder-api', // Issuer - who issued this token
-    aud: 'huishelder-app', // Audience - who this token is intended for
+    iss: 'awesome-api', // Issuer - who issued this token
+    aud: 'awesome-app', // Audience - who this token is intended for
     sub: user.id, // Subject - who this token represents (the user)
     role: user.role, // Include role for role-based access control
   };
@@ -64,8 +65,9 @@ const createCookie = (tokenData: TokenData): string => {
   return `Authorization=${tokenData.token}; HttpOnly; Max-Age=${tokenData.expiresIn}; SameSite=Strict; Path=/`;
 };
 
-const createPasswordResetToken = (email: string): { token: string; expiresAt: Date } => {
+const createPasswordResetToken = (_email: string): { token: string; expiresAt: Date } => {
   const resetToken = randomBytes(32).toString('hex');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _hashedToken = crypto.createHash('sha256').update(resetToken).digest('hex');
 
   // Token expires in 10 minutes

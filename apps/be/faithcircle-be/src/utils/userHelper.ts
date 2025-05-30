@@ -13,6 +13,7 @@ export class UserHelper {
   public static formatUserResponse<T extends Partial<User>>(user: T): Omit<T, 'password'> {
     if (!user) return null;
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...userWithoutPassword } = user;
     return userWithoutPassword;
   }

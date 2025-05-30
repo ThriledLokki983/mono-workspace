@@ -46,7 +46,7 @@ export class Logger {
           ...context,
           stack: error.stack,
           name: error.name,
-        })
+        }),
       );
     } else {
       this.winston.error(error, this.addCorrelation(context));
@@ -72,7 +72,7 @@ export class Logger {
         ? winston.format.combine(
             winston.format.timestamp(),
             winston.format.errors({ stack: true }),
-            winston.format.json()
+            winston.format.json(),
           )
         : winston.format.combine(
             winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
@@ -82,7 +82,7 @@ export class Logger {
                 ? ` ${JSON.stringify(meta)}`
                 : "";
               return `${timestamp} [${level.toUpperCase()}]: ${message}${metaStr}`;
-            })
+            }),
           );
 
     const transports: winston.transport[] = [
@@ -91,7 +91,7 @@ export class Logger {
         level: process.env.NODE_ENV === "production" ? "info" : "debug",
         format: winston.format.combine(
           winston.format.colorize(),
-          winston.format.simple()
+          winston.format.simple(),
         ),
       }),
 

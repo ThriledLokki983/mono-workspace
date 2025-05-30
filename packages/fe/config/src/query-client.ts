@@ -8,7 +8,7 @@ export interface QueryClientOptions {
 }
 
 export function createQueryClient(
-  options: QueryClientOptions = {}
+  options: QueryClientOptions = {},
 ): QueryClient {
   const {
     staleTime = 5 * 60 * 1000, // 5 minutes

@@ -22,7 +22,7 @@ interface EnhancedRequest extends Request {
  * @param options.forbidNonWhitelisted - Throw an error if non-whitelisted properties are found.
  * @returns Middleware function.
  */
-export function ValidationMiddleware<T extends object, R = Request>(
+export function ValidationMiddleware<T extends object>(
   type: new () => T,
   value: RequestPart = 'body',
   options: {

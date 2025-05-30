@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Link } from '@mono-workspace/fe-components';
+import { Button, Link } from '@mono/components';
 
 export const AccessibilityDemo: React.FC = () => {
   const [focusCount, setFocusCount] = useState(0);
