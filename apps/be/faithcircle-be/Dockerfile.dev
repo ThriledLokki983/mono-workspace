@@ -1,0 +1,23 @@
+# NodeJS Version 16
+FROM node:16.18-buster-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install Node Packages
+RUN npm install --legacy-peer-deps
+
+# Set Env
+ENV NODE_ENV development
+
+# Copy development environment file as .env for the container
+COPY .env.development.local ./.env
+
+# Expose port - will be read from .env at runtime
+EXPOSE ${PORT:-5555}
+
+# Cmd script - using nodemon to watch for changes
+CMD ["npm", "run", "dev"]

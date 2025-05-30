@@ -10,7 +10,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@mono/components": ["packages/components"]
+      "@mono-workspace/fe-components": ["../../packages/fe/components"]
     },
 
     /* Bundler mode */

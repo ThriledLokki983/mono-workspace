@@ -1,0 +1,116 @@
+.link {
+  // Base link styling using Open Props and luxury design tokens
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+
+  // Typography from our luxury system
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  text-decoration: none;
+  white-space: nowrap;
+
+  // Smooth transitions
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast),
+    opacity var(--transition-fast);
+
+  // Focus styling for accessibility
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  // Hover effects
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  // External link icon styling
+  .externalIcon {
+    margin-left: var(--spacing-xs);
+    font-size: 0.85em;
+    opacity: 0.7;
+  }
+}
+
+// Variant styles
+.primary {
+  color: var(--color-brand-primary);
+
+  &:hover {
+    color: var(--color-brand-light);
+    text-decoration-color: var(--color-brand-light);
+  }
+
+  &:active {
+    color: var(--color-brand-dark);
+    text-decoration-color: var(--color-brand-dark);
+  }
+}
+
+.secondary {
+  color: var(--color-accent-primary);
+
+  &:hover {
+    color: var(--color-accent-light);
+    text-decoration-color: var(--color-accent-light);
+  }
+
+  &:active {
+    color: var(--color-accent-dark);
+    text-decoration-color: var(--color-accent-dark);
+  }
+}
+
+.muted {
+  color: var(--color-text-secondary);
+
+  &:hover {
+    color: var(--color-text-primary);
+    text-decoration-color: var(--color-text-primary);
+  }
+
+  &:active {
+    color: var(--color-text-primary);
+    text-decoration-color: var(--color-text-primary);
+  }
+}
+
+.danger {
+  color: var(--color-error);
+
+  &:hover {
+    color: var(--red-7);
+    text-decoration-color: var(--red-7);
+  }
+
+  &:active {
+    color: var(--red-8);
+    text-decoration-color: var(--red-8);
+  }
+}
+
+// Disabled state
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// Underline variant (always shows underline)
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@mono/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "index.tsx"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist",
+    "dev": "tsc -b --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write *.{js,jsx,ts,tsx,json,md}",
+    "format:check": "prettier --check *.{js,jsx,ts,tsx,json,md}"
+  },
+  "dependencies": {
+    "@mono/components": "workspace:^",
+    "@mono/types": "workspace:^"
+  },
+  "devDependencies": {
+    "@mono/eslint-config-custom": "workspace:^"
+  },
+  "peerDependencies": {
+    "lucide-react": ">=0.500.0",
+    "react": ">=18.0.0",
+    "react-aria-components": ">=1.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}

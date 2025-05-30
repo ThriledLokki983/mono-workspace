@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@mono/components": "workspace:^",
-    "@mono/fe-config": "workspace:^",
+    "@mono/config": "workspace:^",
     "@mono/styles": "workspace:^"
   },
   "devDependencies": {

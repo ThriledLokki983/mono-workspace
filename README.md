@@ -393,7 +393,7 @@ export default tseslint.config(
   {
     files: ["**/*.{ts,tsx}"],
     ...reactConfig,
-  }
+  },
 );
 ```
 
@@ -411,7 +411,7 @@ export default tseslint.config(
   {
     files: ["**/*.{ts,tsx}"],
     ...baseConfig,
-  }
+  },
 );
 ```
 

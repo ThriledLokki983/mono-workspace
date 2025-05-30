@@ -1,0 +1,47 @@
+{
+  "name": "@mono/types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types and interfaces for mono-workspace",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./fe/ui": {
+      "types": "./dist/fe/ui/index.d.ts",
+      "import": "./dist/fe/ui/index.js"
+    },
+    "./ui": {
+      "types": "./dist/ui/index.d.ts",
+      "import": "./dist/ui/index.js"
+    },
+    "./app": {
+      "types": "./dist/app.d.ts",
+      "import": "./dist/app.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist",
+    "dev": "tsc -b --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,json,md} *.{js,jsx,ts,tsx,json,md}",
+    "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,json,md} *.{js,jsx,ts,tsx,json,md}"
+  },
+  "author": "Gideon Nimoh",
+  "license": "MIT",
+  "devDependencies": {
+    "@mono/eslint-config-custom": "workspace:^",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}

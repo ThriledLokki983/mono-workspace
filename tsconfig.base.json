@@ -65,12 +65,20 @@
     /* Path Mapping */
     "baseUrl": ".",
     "paths": {
-      "@mono/types": ["packages/types/dist"],
-      "@mono/types/*": ["packages/types/dist/*"],
-      "@mono/components": ["packages/components/dist"],
-      "@mono/components/*": ["packages/components/dist/*"],
-      "@mono/fe-config": ["packages/fe-config/dist"],
-      "@mono/fe-config/*": ["packages/fe-config/dist/*"]
+      "@mono/ui": ["packages/fe/ui/dist"],
+      "@mono/ui/*": ["packages/fe/ui/dist/*"],
+      "@mono/styles": ["packages/fe/styles/dist"],
+      "@mono/types": ["packages/shared/types/dist"],
+      "@mono/be-core": ["packages/be/be-core/dist"],
+      "@mono/config": ["packages/fe/config/dist"],
+      "@mono/styles/*": ["packages/fe/styles/dist/*"],
+      "@mono/be-types": ["packages/be/be-types/dist"],
+      "@mono/types/*": ["packages/shared/types/dist/*"],
+      "@mono/be-core/*": ["packages/be/be-core/dist/*"],
+      "@mono/config/*": ["packages/fe/config/dist/*"],
+      "@mono/be-types/*": ["packages/be/be-types/dist/*"],
+      "@mono/components": ["packages/fe/components/dist"],
+      "@mono/components/*": ["packages/fe/components/dist/*"]
     }
   },
   "exclude": [
