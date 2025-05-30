@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/fe-config",
+  "name": "@mono/config",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",

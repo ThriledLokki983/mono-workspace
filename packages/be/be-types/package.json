@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/be-types",
+  "name": "@mono/be-types",
   "version": "0.1.0",
   "description": "Shared TypeScript types for backend applications",
   "main": "dist/index.js",

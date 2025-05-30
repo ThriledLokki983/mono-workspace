@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/be-core",
+  "name": "@mono/be-core",
   "version": "0.1.0",
   "description": "Core backend utilities and framework for the monorepo",
   "main": "dist/index.js",
@@ -36,6 +36,6 @@
     "typescript": "^5.0.0"
   },
   "peerDependencies": {
-    "@mono-workspace/be-types": "workspace:*"
+    "@mono/be-types": "workspace:*"
   }
 }

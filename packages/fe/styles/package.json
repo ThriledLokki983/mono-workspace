@@ -1,5 +1,5 @@
 {
-  "name": "@mono-workspace/fe-styles",
+  "name": "@mono/styles",
   "version": "1.0.0",
   "type": "module",
   "description": "Shared SCSS styles and design system for mono-workspace frontend applications",

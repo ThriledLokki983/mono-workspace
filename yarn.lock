@@ -1559,21 +1559,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mono-workspace/fe-ui@workspace:packages/fe/ui":
-  version: 0.0.0-use.local
-  resolution: "@mono-workspace/fe-ui@workspace:packages/fe/ui"
-  dependencies:
-    "@mono-workspace/eslint-config-custom": "workspace:^"
-    "@mono-workspace/fe-components": "workspace:^"
-    "@mono-workspace/shared-types": "workspace:^"
-  peerDependencies:
-    lucide-react: ">=0.500.0"
-    react: ">=18.0.0"
-    react-aria-components: ">=1.0.0"
-    react-dom: ">=18.0.0"
-  languageName: unknown
-  linkType: soft
-
 "@mono-workspace/shared-types@workspace:^, @mono-workspace/shared-types@workspace:packages/shared/types":
   version: 0.0.0-use.local
   resolution: "@mono-workspace/shared-types@workspace:packages/shared/types"
@@ -13649,12 +13634,6 @@ __metadata:
   checksum: 10c0/947458a5cd5408d2ffcdb14aee50bec8fb5022ae683b896b2f08ed6db7b2e7d42780d5c8b51e930e9c322bd7c7a517f4fa7c76983d0873c83245885ac5ee13e3
   languageName: node
   linkType: hard
-
-"test-app-d27b1e@workspace:apps/fe/test-app":
-  version: 0.0.0-use.local
-  resolution: "test-app-d27b1e@workspace:apps/fe/test-app"
-  languageName: unknown
-  linkType: soft
 
 "test-be-app@workspace:apps/test/be/test-be-app":
   version: 0.0.0-use.local

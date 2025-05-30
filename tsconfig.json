@@ -5,7 +5,6 @@
     { "path": "packages/fe/config" },
     { "path": "packages/fe/components" },
     { "path": "packages/fe/styles" },
-    { "path": "packages/fe/ui" },
     { "path": "packages/be/be-core" },
     { "path": "packages/be/be-types" },
     { "path": "apps/fe/faithcircle" },
